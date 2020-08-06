@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gallery</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark-cus sticky-top">
+        <a class="navbar-brand" href="index.html"><img src="images/MascotAvatar-Flipped.png" width="65" height="65"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTop">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Gallery <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                      <a class="dropbtn nav-link dropdown-toggle" href="projects.html">Projects</a>
+                      <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/websites.html">Websites</a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/games.html">Games</a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/webcomics.html">Webcomics</a>
+                        <a class="text-center dropdown-item text-white-cus" href="projects/animations.html">Animations</a>
+                      </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+              </ul>
+        </div>
+    </nav>
+
+    <!-- Grid -->
+    <div class="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
+        <button class="navbar-toggler mt-2 mb-2" type="button" data-toggle="collapse" data-target="#galleryNames" aria-controls="galleryNames" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Left Side Bar Background Hackaround -->
+        <div class="row h-sm-100 d-none d-sm-block m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 h-100 p-0 bg-dark-cus text-center border-sm-right-2"></div>
+        </div>
+
+        <!-- Left Side Bar -->
+        <div id="galleryNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
+                <div class="container">
+                    <div class="row">
+                            <a href="#" class="col-sm-12 nav-link text-a-cus font-2 active"><h4>Marked</h4></a>
+                            <a href="#" class="col-sm-12 nav-link text-a-cus font-2"><h4>Symbiotic</h4></a>
+                            <a href="#" class="col-sm-12 nav-link text-a-cus font-2"><h4>Fight King (Concept)</h4></a>
+                            <a href="#" class="col-sm-12 nav-link text-a-cus font-2"><h4>Naruto</h4></a>
+                            <a href="#" class="col-sm-12 nav-link text-a-cus font-2"><h4>Mascot</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="row m-0 position-absolute w-100" style="overflow-y: auto; height: 90%; z-index: 5;">
+            <div class="d-none d-sm-block col-sm-3"></div>
+            <div class="col col-sm-9">
+                <div class="container p-3">
+                    <div class="column-1">
+                        <div class="column-3">
+                            <div class="img-cont" data-num="0" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/BeachColor.jpg">
+                                <div class="middle">
+                                    <div class="text">Team Xepher at the Beach</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="1" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Christ-Cringle.jpg">
+                                <div class="middle">
+                                    <div class="text">Christ Cringle</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="2" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/RA-1.jpg">
+                                <div class="middle">
+                                    <div class="text">Why Did This Happen?</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="3" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Group-Banner.jpg">
+                                <div class="middle">
+                                    <div class="text">Team Xepher Banner</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="4" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Gratcie-X-9-50-Chibi.jpg">
+                                <div class="middle">
+                                    <div class="text">Gratcie-X-9 50 (Chibi)</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="5" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/NewKenta-Thumbnai-Al.jpg">
+                                <div class="middle">
+                                    <div class="text">Kenta Thumbnail (Marked)</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="6" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/BannerK.jpg">
+                                <div class="middle">
+                                    <div class="text">Kenta Apocolypse Banner</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="7" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Im-Sorry.jpg">
+                                <div class="middle">
+                                    <div class="text">I'm Sorry...</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="8" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Lilly-&-Sako-Easter.jpg">
+                                <div class="middle">
+                                    <div class="text">Sako &amp; Lilly - Happy Easter</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="9" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Sako-Sweater.jpg">
+                                <div class="middle">
+                                    <div class="text">Do You... Think I'm Cute?</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="10" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Stary-Sky1.jpg">
+                                <div class="middle">
+                                    <div class="text">Starry Sky - Kenta</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="11" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Stary-Sky2.jpg">
+                                <div class="middle">
+                                    <div class="text">Starry Sky - Ryden</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="12" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Sako-Valentine.jpg">
+                                <div class="middle">
+                                    <div class="text">Valentines Day 2017 - Lineart</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="13" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Thanks-For-Subscribing-img.jpg">
+                                <div class="middle">
+                                    <div class="text">The Angels That Protect This Broken World</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="14" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/True_Fear.jpg">
+                                <div class="middle">
+                                    <div class="text">Experience True Fear</div>
+                                </div>
+                            </div>
+                            <div class="img-cont" data-num="15" data-name="Marked">
+                                <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Wallpaper.jpg">
+                                <div class="middle">
+                                    <div class="text">Mathusaleh Wallpaper</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalAria" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-cus" role="document">
+            <div class="modal-content bg-dark-cus text-light">
+                <div class="modal-header">
+                    <button type="button" class="d-none d-lg-block btn btn-outline-light position-absolute" style="left: 0.8rem; top: 0.8rem;"><i class="fa fa-expand"></i></button>
+                <h5 class="modal-title ml-lg-5" id="imageModalTitle"></h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="media">
+                                <div class="col-12 col-lg-6 align-self-center text-center border-lg-right-2">
+                                    <button type="button" class="d-block d-lg-none btn btn-outline-light position-absolute" style="left: 1rem; top: 1rem;"><i class="fa fa-expand fa-2x"></i></button>
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
+                                    <img id="imageModalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
+                                </div>
+                                <div class="d-none d-lg-block col-12 col-lg-6 align-self-center text-center">
+                                    <p class="imageModalDesc"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row d-block d-lg-none pt-3 border-top">
+                            <div class="col-12 col-lg-6 align-self-center text-center">
+                                <p class="imageModalDesc"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+    <script src="js/fading.js"></script>
+
+    <script>
+        const images = document.querySelectorAll('.img-cont');
+        const img = document.querySelector('#imageModalImg')
+        const imgArr = {
+            Marked: [
+                {img: "BeachColor.jpg", desc: "This was a mini-comic I created as an example for a comic contest I hosted on the Tapas froums."},
+                {img: "Christ-Cringle.jpg", desc: "Jesus dressed as Santa Clause, made as a Christmas special for my webcomic, Marked."},
+                {img: "RA-1.jpg", desc: "This is an old black and white image I made before my webcomic swtiched from black and white to color."},
+                {img: "Group-Banner.jpg", desc: "The first banner to my webcomic Marked."},
+                {img: "Gratcie-X-9-50-Chibi.jpg", desc: "Gratcie X-9 50 from my webcomic Marked in chibi form."},
+                {img: "NewKenta-Thumbnai-Al.jpg", desc: "A thumbnail used on the Tapas website to try and draw in readers to Marked."},
+                {img: "BannerK.jpg", desc: "The second banner to my webcomic Marked."},
+                {img: "Im-Sorry.jpg", desc: "An ominous piece I made of the main protagonist of Marked."},
+                {img: "Lilly-&-Sako-Easter.jpg", desc: "Happy Easter 2017."},
+                {img: "Sako-Sweater.jpg", desc: "One of the protagonists from Marked asking an important question to an unknown individual."},
+                {img: "Stary-Sky1.jpg", desc: "\"A hero looks onto the world he protects from evil.\""},
+                {img: "Stary-Sky2.jpg", desc: "\"A villian looks onto a world burned by his destructive hands.\""},
+                {img: "Sako-Valentine.jpg", desc: "Happy Valentines Day 2017."},
+                {img: "Thanks-For-Subscribing-img.jpg", desc: "A piece originally made and used as a \"Thanks for subscribing\" image for people who subscrbibed to my Webcomic."},
+                {img: "True_Fear.jpg", desc: "\"You shall know a fear greater than death itself!\""},
+                {img: "Wallpaper.jpg", desc: "A wallpaper made in the first year of my webcomic."}
+            ],
+            Symbiotic: [
+
+            ],
+            FightKing: [
+
+            ],
+            Naruto: [
+
+            ],
+            Mascot: [
+
+            ]
+        };
+
+        let name = "";
+        let nameArr = "";
+        let currentNum = 0;
+        let canPress = true;
+
+        for (let i = 0; i < images.length; i++) {
+            images[i].addEventListener('click', function() {
+                name = $(this).data('name');
+                nameArr = imgArr[name];
+                currentNum = parseInt($(this).data('num'));
+
+                $('#imageModalTitle').text($(this).find('.text').text());
+                $('#imageModalImg').attr('src', `images/${name}/${nameArr[$(this).data('num')].img}`);
+                $('.imageModalDesc').text(nameArr[$(this).data('num')].desc);
+
+                $('#imageModal').modal("show");
+            });
+        }
+
+        function prevImg() {
+            if (currentNum === 0) {
+                currentNum = nameArr.length-1;
+            } else {
+                --currentNum;
+            }
+            canPress = false;
+            
+            FX.fadeOut(img, {
+                duration: 500,
+                complete: function() {
+                    $('#imageModalImg').attr('src', `images/${name}/${nameArr[currentNum].img}`);
+                    $('.imageModalDesc').text(nameArr[currentNum].desc);
+                    
+                    FX.fadeIn(img, {
+                        duration: 500,
+                        complete: function(){
+                            canPress = true;
+                        }
+                    })
+                }
+            });
+        }
+
+        function nextImg() {
+            if (currentNum === nameArr.length-1) {
+                currentNum = 0;
+            } else {
+                currentNum++;
+            }
+            canPress = false;
+
+            FX.fadeOut(img, {
+                duration: 500,
+                complete: function() {
+                    $('#imageModalImg').attr('src', `images/${name}/${nameArr[currentNum].img}`);
+                    $('.imageModalDesc').text(nameArr[currentNum].desc);
+
+                    FX.fadeIn(img, {
+                        duration: 500,
+                        complete: function(){
+                            canPress = true;
+                        }
+                    })
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (canPress) {
+                switch(e.keyCode) {
+                    case 37:
+                        prevImg();
+                        break;
+                    case 39:
+                        nextImg();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
