@@ -276,7 +276,7 @@
                 { img: "Blaze.jpg", desc: "Concept art of Blaze, Taya's symbiote partner.", title: "Blaze Concept Art" },
                 { img: "Neolinus_GrownUp.jpg", desc: "Concept art made for Neolinus.", title: "Neolinus Concept Art" },
                 { img: "Alastair.jpg", desc: "Concept art made for Alastair.", title: "Alastair Concept Art" },
-                { img: "Osmund.jpg", desc: "Concept art of Osmund, Alastair's symbiote partner.", title: "Alastair's Symbiote Partner, Osmund" },
+                { img: "Osmund.jpg", desc: "Concept art of Osmund, Alastair's symbiote partner.", title: "Osmund Concept Art" },
                 { img: "Beelzebub_Ref.jpg", desc: "Concept art made for Beelzebub, a massive hulking beast and a destructive force to be reckoned with.", title: "Beelzebub Concept Art" },
                 { img: "Symbiote1-FullControl.jpg", desc: "Symbiote and host working in tandum to fight against the things wrong with the world.", title: "Symbiote - Full Control" },
                 { img: "Symbiote1-NoControl.jpg", desc: "The symbiote has taken full control of the host and is ready to rampage...", title: "Symbiote - No Control" }
@@ -286,7 +286,7 @@
                 { img: "Arsenal(Cloak).jpg", desc: "The cloaked murder Arsenal.", title: "Arsenal(Cloak) - Character Concept" },
                 { img: "Arsenal(No-Cloak).jpg", desc: "The uncloaked murder Arsenal.", title: "Arsenal(No Cloak) - Character Concept" },
                 { img: "Arsenal-Sniper.jpg", desc: "Ready, aim, fire!", title: "Shoot to Kill" },
-                { img: "Arsenal-vs-Ellie.jpg", desc: "This was created as part of a pitch to the webcomic platform Tapas in an attempt to make a premium comic out of it.", title: "Why Do You Look Like Her?" },
+                { img: "Arsenal-vs-Ellie.jpg", desc: "This was created as part of a pitch to the webcomic platform Tapas in an attempt to make a premium comic out of it.", title: "Why Do You Look Like Her!?" },
                 { img: "Ellie-w-Cloak.jpg", desc: "Ellie the vile wearing her trench coat.", title: "Ellie(Coat) - Character Concept" },
                 { img: "Ellie-wo-Cloak.jpg", desc: "Elli the vile.", title: "Ellie(No Coat) - Character Concept" },
                 { img: "Kira.jpg", desc: "Kira wearing her work maid uniform.", title: "Kira(Maid) - Character Concept" },
@@ -364,6 +364,8 @@
                 images[i].removeEventListener('click', clickImg);
                 $(images[i]).remove();
             }
+
+            $('#galleryNames').collapse('hide');
             
             prevActive.classList.remove('active');
             thisActive.classList.add('active');
