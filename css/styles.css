@@ -62,7 +62,24 @@ body, html {
     column-width: 33%;
 }
 
+.column-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+}
+
 .column-3 img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.column-2 img {
     width: 100%;
     margin-bottom: 1rem;
 }
@@ -102,7 +119,7 @@ body, html {
     background-size: cover;
 }
 
-.img-cont {
+.img-cont, .site-cont {
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -146,11 +163,11 @@ body, html {
     text-align: center;
 }
   
-.img-cont:hover .image {
+.img-cont:hover .image, .site-cont:hover .image {
     opacity: 0.3;
 }
   
-.img-cont:hover .middle {
+.img-cont:hover .middle, .site-cont:hover .middle {
     opacity: 1;
 }
   
@@ -177,7 +194,7 @@ body, html {
     height: 100%;
 }
 
-.img-holder {
+.img-holder, .site-holder {
     text-align: center;
     height: 80vh;
     width: 60%;
@@ -251,6 +268,18 @@ body, html {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
+        -webkit-column-gap: 1rem;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        -webkit-column-width: 33%;
+        -moz-column-width: 33%;
+        column-width: 33%;
+    }
+
+    .column-2 {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
         -webkit-column-gap: 1rem;
         -moz-column-gap: 1rem;
         column-gap: 1rem;
