@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Gallery <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown d-none d-sm-block">
                       <a class="dropbtn nav-link dropdown-toggle" href="projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/websites.html">Websites</a>
@@ -31,6 +31,9 @@
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/webcomics.html">Webcomics</a>
                         <a class="text-center dropdown-item text-white-cus" href="projects/animations.html">Animations</a>
                       </div>
+                </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a class="nav-link" href="projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
@@ -41,7 +44,7 @@
 
     <!-- Grid -->
     <div class="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
-        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#galleryNames" aria-controls="galleryNames" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#infoNames" aria-controls="infoNames" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -51,15 +54,15 @@
         </div>
 
         <!-- Left Side Bar -->
-        <div id="galleryNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
+        <div id="infoNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
             <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
                 <div class="container">
                     <div class="row">
-                            <a href="#" onclick="replaceImages(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="Marked"><h4>Marked</h4></a>
-                            <a href="#" onclick="replaceImages(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Symbiotic"><h4>Symbiotic</h4></a>
-                            <a href="#" onclick="replaceImages(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="FightKing"><h4>Fight King (Concept)</h4></a>
-                            <a href="#" onclick="replaceImages(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Naruto"><h4>Naruto</h4></a>
-                            <a href="#" onclick="replaceImages(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Mascot"><h4>Mascot</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="Marked"><h4>Marked</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Symbiotic"><h4>Symbiotic</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="FightKing"><h4>Fight King (Concept)</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Naruto"><h4>Naruto</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Mascot"><h4>Mascot</h4></a>
                     </div>
                 </div>
             </div>
@@ -77,97 +80,97 @@
                     </div>
                     <div class="column-1">
                         <div id="imageList" class="column-3">
-                            <div class="img-cont" data-num="0" data-name="Marked">
+                            <div class="cont" data-num="0" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/BeachColor.jpg">
                                 <div class="middle">
                                     <div class="text">Team Xepher at the Beach</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="1" data-name="Marked">
+                            <div class="cont" data-num="1" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Christ-Cringle.jpg">
                                 <div class="middle">
                                     <div class="text">Christ Cringle</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="2" data-name="Marked">
+                            <div class="cont" data-num="2" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/RA-1.jpg">
                                 <div class="middle">
                                     <div class="text">Why Did This Happen?</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="3" data-name="Marked">
+                            <div class="cont" data-num="3" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Group-Banner.jpg">
                                 <div class="middle">
                                     <div class="text">Team Xepher Banner</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="4" data-name="Marked">
+                            <div class="cont" data-num="4" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Gratcie-X-9-50-Chibi.jpg">
                                 <div class="middle">
                                     <div class="text">Gratcie-X-9 50 (Chibi)</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="5" data-name="Marked">
+                            <div class="cont" data-num="5" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/NewKenta-Thumbnai-Al.jpg">
                                 <div class="middle">
                                     <div class="text">Kenta Thumbnail</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="6" data-name="Marked">
+                            <div class="cont" data-num="6" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/BannerK.jpg">
                                 <div class="middle">
                                     <div class="text">Kenta Apocolypse Banner</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="7" data-name="Marked">
+                            <div class="cont" data-num="7" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Im-Sorry.jpg">
                                 <div class="middle">
                                     <div class="text">I'm Sorry...</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="8" data-name="Marked">
+                            <div class="cont" data-num="8" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Lilly-&-Sako-Easter.jpg">
                                 <div class="middle">
                                     <div class="text">Sako &amp; Lilly - Happy Easter</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="9" data-name="Marked">
+                            <div class="cont" data-num="9" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Sako-Sweater.jpg">
                                 <div class="middle">
                                     <div class="text">Do You... Think I'm Cute?</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="10" data-name="Marked">
+                            <div class="cont" data-num="10" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Stary-Sky1.jpg">
                                 <div class="middle">
                                     <div class="text">Starry Sky - Kenta</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="11" data-name="Marked">
+                            <div class="cont" data-num="11" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Stary-Sky2.jpg">
                                 <div class="middle">
                                     <div class="text">Starry Sky - Ryden</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="12" data-name="Marked">
+                            <div class="cont" data-num="12" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Sako-Valentine.jpg">
                                 <div class="middle">
                                     <div class="text">Valentines Day 2017 - Lineart</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="13" data-name="Marked">
+                            <div class="cont" data-num="13" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Thanks-For-Subscribing-img.jpg">
                                 <div class="middle">
                                     <div class="text">The Angels That Protect This Broken World</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="14" data-name="Marked">
+                            <div class="cont" data-num="14" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/True_Fear.jpg">
                                 <div class="middle">
                                     <div class="text">Experience True Fear</div>
                                 </div>
                             </div>
-                            <div class="img-cont" data-num="15" data-name="Marked">
+                            <div class="cont" data-num="15" data-name="Marked">
                                 <img class="img-fluid img-thumbnail image" src="images/Marked/thumb/Wallpaper.jpg">
                                 <div class="middle">
                                     <div class="text">Mathusaleh Wallpaper</div>
@@ -181,12 +184,12 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalAria" aria-hidden="true">
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalAria" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-cus" role="document">
             <div class="modal-content bg-dark-cus text-light">
                 <div class="modal-header">
                     <button type="button" class="d-none d-lg-block btn btn-outline-light position-absolute" style="left: 0.8rem; top: 0.8rem;" onclick="fullscreen()"><i class="fa fa-expand"></i></button>
-                <h5 class="modal-title ml-lg-5" id="imageModalTitle"></h5>
+                <h5 class="modal-title ml-lg-5" id="modalTitle"></h5>
                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -198,7 +201,7 @@
                                 <div id="img-holder" class="col-12 col-lg-8 text-center border-lg-right-2" style="display: block;">
                                     <button type="button" class="d-block d-lg-none btn btn-outline-light position-absolute" style="left: 1rem; top: 1rem;" onclick="fullscreen()"><i class="fa fa-expand fa-2x"></i></button>
                                     <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
-                                    <img id="imageModalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
+                                    <img id="modalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
                                     <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
                                 </div>
 
@@ -206,19 +209,19 @@
                                     <button type="button" class="d-block btn btn-outline-light position-absolute" style="left: 1rem; top: 1rem; z-index: 10" onclick="fullscreen()"><i class="fa fa-expand fa-3x"></i></button>
                                     <button type="button" class="btn btn-secondary mr-3 btn-full-left-cus" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
                                     <span className="panel_gallery helper"></span>
-                                    <img id="imageModalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
+                                    <img id="modalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
                                     <button type="button" class="btn btn-secondary ml-3 btn-full-right-cus" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
                                 </div>
 
                                 <div class="d-none d-lg-block col-12 col-lg-4 text-center">
-                                    <p class="imageModalDesc"></p>
+                                    <p class="modalDesc"></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row d-block d-lg-none pt-3 border-top">
                             <div class="col-12 col-lg-6 align-self-center text-center">
-                                <p class="imageModalDesc"></p>
+                                <p class="modalDesc"></p>
                             </div>
                         </div>
                     </div>
@@ -230,16 +233,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-    <script src="js/fading.js"></script>
     <script src="node_modules/animejs/lib/anime.min.js"></script>
+    <script src="js/fading.js"></script>
+    <script src="js/scripts.js"></script>
 
     <script>
-        let images = document.querySelectorAll('.img-cont');
-        const img = document.querySelector('#imageModalImg');
-        const imgFull = document.querySelector('#imageModalImgFull');
-        const title = document.querySelector('#imageModalTitle');
-        const desc = document.querySelectorAll('.imageModalDesc');
-        const imgArr = {
+        const modalArr = {
             Marked: [
                 { img: "BeachColor.jpg", desc: "This was a mini-comic I created as an example for a comic contest I hosted on the Tapas froums.", title: "Team Xepher at the Beach" },
                 { img: "Christ-Cringle.jpg", desc: "Jesus dressed as Santa Clause, made as a Christmas special for my webcomic, Marked.", title: "Christ Cringle" },
@@ -326,238 +325,7 @@
         let nameArr = "";
         let currentNum = 0;
         let canPress = false;
-
         const imgCont = document.getElementById('imageList');
-
-        function clickImg() {
-            name = $(this).data('name');
-            nameArr = imgArr[name];
-            currentNum = parseInt($(this).data('num'));
-            canPress = true;
-
-            $('#imageModalTitle').html(nameArr[$(this).data('num')].title);
-            $('#imageModalImg').attr('src', `images/${name}/${nameArr[$(this).data('num')].img}`);
-            $('#imageModalImgFull').attr('src', `images/${name}/${nameArr[$(this).data('num')].img}`);
-            $('.imageModalDesc').html(nameArr[$(this).data('num')].desc);
-
-            $('#imageModal').modal("show");
-        }
-
-        let animDelay = 0;
-        for (let i = 0; i < images.length; i++) {
-            images[i].addEventListener('click', clickImg);
-            animDelay = animDelay + 50;
-            anime({
-                targets: images[i],
-                duration: 750,
-                delay: animDelay,
-                opacity: 1,
-                scale: [1, 1.2, 1],
-                easing: 'easeInOutSine'
-            });
-        }
-
-        function replaceImages(e) {
-            const prevActive = document.querySelector('.nav-link.text-a-cus.active');
-            const thisActive = e;
-            for (let i = 0; i < images.length; i++) {
-                images[i].removeEventListener('click', clickImg);
-                $(images[i]).remove();
-            }
-
-            $('#galleryNames').collapse('hide');
-            
-            prevActive.classList.remove('active');
-            thisActive.classList.add('active');
-
-            nameArr = imgArr[e.dataset.name];
-            for (let x = 0; x < nameArr.length; x++) {
-                const node = $(`
-                    <div class="img-cont" data-num="${x}" data-name="${e.dataset.name}">
-                        <img class="img-fluid img-thumbnail image" src="images/${e.dataset.name}/thumb/${nameArr[x].img}">
-                        <div class="middle">
-                            <div class="text">${nameArr[x].title}</div>
-                        </div>
-                    </div>
-                `);
-                $(imgCont).append(node);
-            }
-            images = document.querySelectorAll('.img-cont');
-
-            animDelay = 0;
-            for (let i = 0; i < images.length; i++) {
-                images[i].addEventListener('click', clickImg);
-                animDelay = animDelay + 50;
-                anime({
-                    targets: images[i],
-                    duration: 750,
-                    delay: animDelay,
-                    opacity: 1,
-                    scale: [1, 1.2, 1],
-                    easing: 'easeInOutSine'
-                });
-            }
-        }
-
-        function prevImg() {
-            if (currentNum === 0) {
-                currentNum = nameArr.length-1;
-            } else {
-                --currentNum;
-            }
-            canPress = false;
-            
-            FX.fadeOut(img, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalTitle').html(nameArr[currentNum].title);
-                    $('#imageModalImg').attr('src', `images/${name}/${nameArr[currentNum].img}`);
-                    $('.imageModalDesc').html(nameArr[currentNum].desc);
-                    
-                    FX.fadeIn(img, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-            FX.fadeOut(title, { duration: 500, complete: function() {FX.fadeIn(title, { duration: 500 })} });
-            for (let i = 0; i < desc.length; i++) FX.fadeOut(desc[i], { duration: 500, complete: function() {FX.fadeIn(desc[i], { duration: 500 })} });
-            
-            FX.fadeOut(imgFull, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalImgFull').attr('src', `images/${name}/${nameArr[currentNum].img}`);
-                    
-                    FX.fadeIn(imgFull, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-        }
-
-        function nextImg() {
-            if (currentNum === nameArr.length-1) {
-                currentNum = 0;
-            } else {
-                currentNum++;
-            }
-            canPress = false;
-
-            FX.fadeOut(img, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalTitle').html(nameArr[currentNum].title);
-                    $('#imageModalImg').attr('src', `images/${name}/${nameArr[currentNum].img}`);
-                    $('.imageModalDesc').html(nameArr[currentNum].desc);
-
-                    FX.fadeIn(img, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-            FX.fadeOut(title, { duration: 500, complete: function() {FX.fadeIn(title, { duration: 500 })} });
-            for (let i = 0; i < desc.length; i++) FX.fadeOut(desc[i], { duration: 500, complete: function() {FX.fadeIn(desc[i], { duration: 500 })} });
-
-            FX.fadeOut(imgFull, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalImgFull').attr('src', `images/${name}/${nameArr[currentNum].img}`);
-
-                    FX.fadeIn(imgFull, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-        }
-
-        function fullscreen() {
-            'use strict';
-            let pfx = ["webkit", "moz", "ms", "o", ""];
-
-            function RunPrefixMethod(obj, method) {
-                let p = 0, m, t;
-                while (p < pfx.length && !obj[m]) {
-                    m = method;
-                    if (pfx[p] === "") {
-                        m = m.substr(0, 1).toLowerCase() + m.substr(1);
-                    }
-                    m = pfx[p] + m;
-                    t = typeof obj[m];
-                    if (t !== "undefined") {
-                        pfx = [pfx[p]];
-                        return (t === "function" ? obj[m]() : obj[m]);
-                    }
-                    p++;
-                }
-            }
-
-            document.addEventListener('fullscreenchange', exitHandler);
-            document.addEventListener('webkitfullscreenchange', exitHandler);
-            document.addEventListener('mozfullscreenchange', exitHandler);
-            document.addEventListener('MSFullscreenChange', exitHandler);
-
-            function exitHandler() {
-                if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-                    imgHolder.style.display = "none";
-                    imgHolderB.style.display = "block";
-                    canPress = false;
-                    document.removeEventListener('fullscreenchange', exitHandler);
-                    document.removeEventListener('webkitfullscreenchange', exitHandler);
-                    document.removeEventListener('mozfullscreenchange', exitHandler);
-                    document.removeEventListener('MSFullscreenChange', exitHandler);
-                }
-            }
-
-            const e = document.getElementById("imageModalImg");
-            const imgHolder = document.getElementById("img-holder-full");
-            const imgHolderB = document.getElementById('img-holder');
-            
-            if (RunPrefixMethod(imgHolder, "fullScreenElement") == null) {
-            }
-            
-            if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) { /* Firefox */
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE/Edge */
-                    document.msExitFullscreen();
-                }
-            }
-            else {
-                imgHolder.style.display = "flex";
-                imgHolderB.style.display = "none";
-                RunPrefixMethod(imgHolder, "RequestFullScreen");
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (canPress) {
-                switch(e.keyCode) {
-                    case 37:
-                        prevImg();
-                        break;
-                    case 39:
-                        nextImg();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
     </script>
 </body>
 </html>

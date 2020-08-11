@@ -23,14 +23,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown d-none d-sm-block">
                       <a class="dropbtn nav-link dropdown-toggle" href="../projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="text-center dropdown-item text-white-cus border-bottom" href="websites.html">Websites <span class="sr-only">(current)</span></a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="websites.html">Websites</a>
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="games.html">Games</a>
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="webcomics.html">Webcomics</a>
-                        <a class="text-center dropdown-item text-white-cus" href="animations.html">Animations</a>
+                        <a class="text-center dropdown-item text-white-cus" href="animations.html">Animations <span class="sr-only">(current)</span></a>
                       </div>
+                </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a class="nav-link" href="../projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../about.html">About</a>
@@ -39,14 +42,111 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Grid -->
+    <div class="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
+        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#infoNames" aria-controls="infoNames" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <!-- Left Side Bar Background Hackaround -->
+        <div class="row h-sm-100 d-none d-sm-block m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 h-100 p-0 bg-dark-cus text-center border-sm-right-2"></div>
+        </div>
+
+        <!-- Left Side Bar -->
+        <div id="infoNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
+                <div class="container">
+                    <div class="row">
+                            <a href="#" onclick="replaceItems(this, 0)" class="col-sm-12 nav-link text-a-cus font-2 active"><h4>Symbiotic Trailer</h4></a>
+                            <a href="#" onclick="replaceItems(this, 1)" class="col-sm-12 nav-link text-a-cus font-2"><h4>Shelter Music Video</h4></a>
+                            <a href="#" onclick="replaceItems(this, 2)" class="col-sm-12 nav-link text-a-cus font-2"><h4>Marked Chapter 9 Trailer</h4></a>
+                            <a href="#" onclick="replaceItems(this, 3)" class="col-sm-12 nav-link text-a-cus font-2"><h4>Marked Short Animation</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="row m-0 position-absolute w-100 scrollDiv galleryDiv">
+            <div class="d-none d-sm-block col-sm-3"></div>
+            <div class="col col-sm-9">
+                <div class="container p-3">
+                    <div class="row">
+                        <div class="col-12 text-light text-center mb-3">
+                            <h1>Animations</h1>
+                        </div>
+                    </div>
+                    <div class="column-1">
+                        <div id="videoList" class="column-1">
+                            <div class="cont">
+                                <div class="videoWrapper mb-3">
+                                    <iframe id="modalVid" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card bg-dark-cus border text-light">
+                                    <div class="card-header font-size border-bottom h2"></div>
+                                    <div class="card-body"><p class="card-text"></p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-    <script src="../js/fading.js"></script>
     <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script src="../js/fading.js"></script>
+
+    <script>
+        const modalArr = [
+                {
+                    src: "J30NDAS5P3c",
+                    title: "Symbiotic Animated Trailer",
+                    desc: `An anime styled Visual Novel with RPG style video game elements.
+                    <br><br>
+                    Symbiotic is a Visual Novel that revolves around a kid named Zaydin and his "friends", of whom he can't stand, being the last thing standing between Earth's survival and total annihilation. With the arrival of the planet eating Symbiote planet Metamor, Earth has been forced to create it's own Symbiote creatures to save the planet from destruction. However, due to complications with these man-made Symbiote creatures, they are unable to bond with adults. When bonded with an adult it will over their mind and cause them to go on a murderous rampage, the only people who can safely bond with the Symbiotes are children under the age of 18.
+                    <br><br>
+                    Music from https://filmmusic.io<br>
+                    "Loss" by Kevin MacLeod (https://incompetech.com)<br>
+                    License: CC BY (http://creativecommons.org/licenses/b...)`
+                },
+                {
+                    src: "da4c9GnSi8A",
+                    title: "Marked: Shelter - Porter Robinson & Madeon",
+                    desc: `My first real animation, this was a long and very difficult project to make. The project was created to serve two purposes, the first being a question to myself of whether or not I could animate a full length animations.  The second purpose was to try and build up a fan base for the video that would hopefully transfer over to the webcomic "Marked" that it was based on, but sadly the video never picked up traction and the comic eventually went on permanent hiatus due to burn out and a dying medium (Western comics).  The story will be re-told at some point in a different medium in the future, likely as a video game.
+                    <br><br>
+                    The pixelation/quality on some scenes is a result of the image complier I used to turn it into a video, future animations use a different image complier (Blender) for cleaner lines and quality.
+                    <br><br>
+                    The song used in this animation is Shelter by Porter Robinson & Madeon, I take no credit for it.
+                    <br><br>
+                    The characters used in this animation are a part of a Webcomic called "Marked", and were created by me.`
+                },
+                {
+                    src: "nJRIBmTn80w",
+                    title: "Marked: Chapter 9 Trailer",
+                    desc: `This was a trailer created to hype up anticipation for chapter 9 of the webcomic "Marked".  Chapter 9 was meant to be the chapter that changed the entre dynamic of the story by basically wiping the slate clean and restarting back at 0, while giving the main protagonist serious trauma that would follow him the entire series.
+                    <br><br>
+                    While it did hype up select few individuals who were following the story, it did not have the impact I had hoped for by bringing attention to the webcomic from people who enjoyed the animation and wanted to know what was going on.`
+                },
+                {
+                    src: "yAzc2456TPw",
+                    title: "Marked: You Know What Happens",
+                    desc: `This animation was the first animation I had ever created, because of my inexperience at the time it does look off and has grammatical errors that I missed when I edited together the video.
+                    <br><br>
+                    The animation was made in 2016 and uploaded to DeviantART, a year later it was uploaded to YouTube.  It's a short animation, and since then the character designs, among other things, have changed.  The animation comes from a webcomic that I used to work on called "Marked", development of the webcomic was halted due to burn out and a dying medium (Western comics).
+                    <br><br>
+                    Marked and it's characters were created by me.`
+                }
+            ];
+
+        let name = "";
+        let currentNum = 0;
+        let canPress = false;
+    </script>
+    <script src="../js/video-scripts.js"></script>
 </body>
 </html>

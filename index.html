@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown d-none d-sm-block">
                       <a class="dropbtn nav-link dropdown-toggle" href="projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/websites.html">Websites</a>
@@ -31,6 +31,9 @@
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="projects/webcomics.html">Webcomics</a>
                         <a class="text-center dropdown-item text-white-cus" href="projects/animations.html">Animations</a>
                       </div>
+                </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a class="nav-link" href="projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
@@ -45,40 +48,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
     <script src="js/fading.js"></script>
-    <script>
-        const imgArr = [
-            "../images/Marked/Im-Sorry.jpg",
-            "../images/Symbiotic/main-menu-background.jpg",
-            "../images/Marked/BannerK.jpg",
-            "../images/Marked/Group-Banner.jpg",
-            "../images/Marked/Thanks-For-Subscribing-img.jpg",
-            "../images/Marked/Wallpaper.jpg",
-            "../images/Symbiotic/Cover.jpg"
-        ];
-        let imgNum = 0;
-        const interval = setInterval(function() {
-            if (imgNum === imgArr.length - 1) {
-                imgNum = 0;
-            } else {
-                ++imgNum;
-            }
-            setImage(imgNum);
-        }, 5000);
-
-        function setImage(img) {
-            const bg = document.getElementById('bg');
-
-            FX.fadeOut(bg, {
-                duration: 1000,
-                complete: function() {
-                    bg.style.backgroundImage = `url('${imgArr[img]}')`;
-
-                    FX.fadeIn(bg, {
-                        duration: 1000
-                    });
-                }
-            });
-        }
-    </script>
+    <script src="js/index_fade.js"></script>
 </body>
 </html>

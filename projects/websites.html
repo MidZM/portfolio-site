@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown d-none d-sm-block active">
                       <a class="dropbtn nav-link dropdown-toggle" href="../projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="websites.html">Websites <span class="sr-only">(current)</span></a>
@@ -31,6 +31,9 @@
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="webcomics.html">Webcomics</a>
                         <a class="text-center dropdown-item text-white-cus" href="animations.html">Animations</a>
                       </div>
+                </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a class="nav-link" href="../projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../about.html">About</a>
@@ -41,7 +44,7 @@
 
     <!-- Grid -->
     <div class="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
-        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#siteNames" aria-controls="siteNames" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#infoNames" aria-controls="infoNames" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -51,13 +54,13 @@
         </div>
 
         <!-- Left Side Bar -->
-        <div id="siteNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
+        <div id="infoNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
             <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
                 <div class="container">
                     <div class="row">
-                            <a href="#" onclick="replaceWebsites(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="HTML"><h4>HTML/Non-Specific</h4></a>
-                            <a href="#" onclick="replaceWebsites(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="React"><h4>React</h4></a>
-                            <a href="#" onclick="replaceWebsites(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Wix"><h4>Wix</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="HTML"><h4>HTML/Non-Specific</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="React"><h4>React</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Wix"><h4>Wix</h4></a>
                     </div>
                 </div>
             </div>
@@ -75,25 +78,25 @@
                     </div>
                     <div class="column-1">
                         <div id="siteList" class="column-2">
-                            <div class="site-cont" data-num="0" data-name="HTML">
+                            <div class="cont" data-num="0" data-name="HTML">
                                 <img class="img-fluid img-thumbnail image" src="../images/website_af.png">
                                 <div class="middle">
                                     <div class="text">Angel Fluff Diapers</div>
                                 </div>
                             </div>
-                            <div class="site-cont" data-num="1" data-name="HTML">
+                            <div class="cont" data-num="1" data-name="HTML">
                                 <img class="img-fluid img-thumbnail image" src="../images/website_pp.png">
                                 <div class="middle">
                                     <div class="text">Mountain View Plastic Pants</div>
                                 </div>
                             </div>
-                            <div class="site-cont" data-num="2" data-name="HTML">
+                            <div class="cont" data-num="2" data-name="HTML">
                                 <img class="img-fluid img-thumbnail image" src="../images/website_ww.png">
                                 <div class="middle">
                                     <div class="text">Workwear Headquarters</div>
                                 </div>
                             </div>
-                            <div class="site-cont" data-num="3" data-name="HTML">
+                            <div class="cont" data-num="3" data-name="HTML">
                                 <img class="img-fluid img-thumbnail image" src="../images/website_cn.png">
                                 <div class="middle">
                                     <div class="text">CloudNovel</div>
@@ -107,11 +110,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalAria" aria-hidden="true">
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="imageModalAria" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-cus" role="document">
             <div class="modal-content bg-dark-cus text-light">
                 <div class="modal-header">
-                <h5 class="modal-title" id="imageModalTitle"></h5>
+                <h5 class="modal-title" id="modalTitle"></h5>
                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -120,28 +123,28 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="media align-items-center">
-                                <div id="site-holder" class="col-12 col-lg-6 text-center border-lg-right-2" style="display: block;">
-                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevSite()"><i class="fa fa-angle-left"></i></button>
-                                    <img id="imageModalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
-                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextSite()"><i class="fa fa-angle-right"></i></button>
+                                <div id="img-holder" class="col-12 col-lg-6 text-center border-lg-right-2" style="display: block;">
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
+                                    <img id="modalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
                                 </div>
 
-                                <div id="site-holder-full" class="site-holder row col-12 align-items-center justify-content-center text-center" style="display: none;">
-                                    <button type="button" class="btn btn-secondary mr-3 btn-full-left-cus" onclick="prevSite()"><i class="fa fa-angle-left"></i></button>
+                                <div id="img-holder-full" class="image-holder row col-12 align-items-center justify-content-center text-center" style="display: none;">
+                                    <button type="button" class="btn btn-secondary mr-3 btn-full-left-cus" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
                                     <span className="panel_gallery helper"></span>
-                                    <img id="imageModalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
-                                    <button type="button" class="btn btn-secondary ml-3 btn-full-right-cus" onclick="nextSite()"><i class="fa fa-angle-right"></i></button>
+                                    <img id="modalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
+                                    <button type="button" class="btn btn-secondary ml-3 btn-full-right-cus" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
                                 </div>
 
                                 <div class="d-none d-lg-block col-12 col-lg-6 text-left">
                                     <h3>About:</h3>
-                                    <p class="siteModalDesc"></p>
+                                    <p class="modalDesc"></p>
                                     <h3>Technologies Used:</h3>
-                                    <p class="siteModalTech"></p>
+                                    <p class="modalTech"></p>
                                     <h3>Custom Plugins:</h3>
-                                    <p class="siteModalFirst"></p>
-                                    <h3>3rd Part Plugins:</h3>
-                                    <p class="siteModalThird"></p>
+                                    <p class="modalFirst"></p>
+                                    <h3>3rd Party Plugins:</h3>
+                                    <p class="modalThird"></p>
                                 </div>
                             </div>
                         </div>
@@ -149,13 +152,13 @@
                         <div class="row d-block d-lg-none pt-3 border-top">
                             <div class="col-12 col-lg-6 align-self-center text-left">
                                 <h3>About:</h3>
-                                <p class="siteModalDesc"></p>
+                                <p class="modalDesc"></p>
                                 <h3>Technologies Used:</h3>
-                                <p class="siteModalTech"></p>
+                                <p class="modalTech"></p>
                                 <h3>Custom Plugins:</h3>
-                                <p class="siteModalFirst"></p>
-                                <h3>3rd Part Plugins:</h3>
-                                <p class="siteModalThird"></p>
+                                <p class="modalFirst"></p>
+                                <h3>3rd Party Plugins:</h3>
+                                <p class="modalThird"></p>
                             </div>
                         </div>
                     </div>
@@ -167,19 +170,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-    <script src="../js/fading.js"></script>
     <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script src="../js/fading.js"></script>
+    <script src="../js/scripts.js"></script>
 
     <script>
-        let sites = document.querySelectorAll('.site-cont');
-        const img = document.querySelector('#imageModalImg');
-        const imgFull = document.querySelector('#imageModalImgFull');
-        const title = document.querySelector('#imageModalTitle');
-        const desc = document.querySelectorAll('.siteModalDesc');
-        const tech = document.querySelectorAll('.siteModalTech');
-        const first = document.querySelectorAll('.siteModalFirst');
-        const third = document.querySelectorAll('.siteModalThird');
-        const siteArr = {
+        const modalArr = {
             HTML: [
                 {
                     img: "website_af.png",
@@ -316,197 +312,7 @@
         let webFirst;
         let webThird;
 
-        const siteCont = document.getElementById('siteList');
-
-        function clickSite() {
-            name = $(this).data('name');
-            nameArr = siteArr[name];
-            currentNum = parseInt($(this).data('num'));
-            canPress = true;
-            webDesc = nameArr[$(this).data('num')].about;
-            webTech = nameArr[$(this).data('num')].tech;
-            webFirst = nameArr[$(this).data('num')].first;
-            webThird = nameArr[$(this).data('num')].third;
-
-
-            $('.siteModalTech').empty();
-            $('.siteModalFirst').empty();
-            $('.siteModalThird').empty();
-
-            $('#imageModalTitle').html(nameArr[$(this).data('num')].title);
-            $('#imageModalImg').attr('src', `../images/${nameArr[$(this).data('num')].img}`);
-            $('#imageModalImgFull').attr('src', `../images/${nameArr[$(this).data('num')].img}`);
-            $('.siteModalDesc').html(webDesc);
-            $(webTech).each((i) => $('.siteModalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
-            $(webFirst).each((i) => $('.siteModalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
-            $(webThird).each((i) => $('.siteModalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-
-            $('#imageModal').modal("show");
-        }
-
-        let animDelay = 0;
-        for (let i = 0; i < sites.length; i++) {
-            sites[i].addEventListener('click', clickSite);
-            animDelay = animDelay + 50;
-            anime({
-                targets: sites[i],
-                duration: 750,
-                delay: animDelay,
-                opacity: 1,
-                scale: [1, 1.2, 1],
-                easing: 'easeInOutSine'
-            });
-        }
-
-        function replaceWebsites(e) {
-            const prevActive = document.querySelector('.nav-link.text-a-cus.active');
-            const thisActive = e;
-            for (let i = 0; i < sites.length; i++) {
-                sites[i].removeEventListener('click', clickSite);
-                $(sites[i]).remove();
-            }
-
-            $('#siteNames').collapse('hide');
-            
-            prevActive.classList.remove('active');
-            thisActive.classList.add('active');
-
-            nameArr = siteArr[e.dataset.name];
-            for (let x = 0; x < nameArr.length; x++) {
-                const node = $(`
-                    <div class="site-cont" data-num="${x}" data-name="${e.dataset.name}">
-                        <img class="img-fluid img-thumbnail image" src="../images/${nameArr[x].img}">
-                        <div class="middle">
-                            <div class="text">${nameArr[x].title}</div>
-                        </div>
-                    </div>
-                `);
-                $(siteCont).append(node);
-            }
-            sites = document.querySelectorAll('.site-cont');
-
-            animDelay = 0;
-            for (let i = 0; i < sites.length; i++) {
-                sites[i].addEventListener('click', clickSite);
-                animDelay = animDelay + 50;
-                anime({
-                    targets: sites[i],
-                    duration: 750,
-                    delay: animDelay,
-                    opacity: 1,
-                    scale: [1, 1.2, 1],
-                    easing: 'easeInOutSine'
-                });
-            }
-        }
-
-        function prevSite() {
-            if (currentNum === 0) {
-                currentNum = nameArr.length-1;
-            } else {
-                --currentNum;
-            }
-            canPress = false;
-            webDesc = nameArr[currentNum].about;
-            webTech = nameArr[currentNum].tech;
-            webFirst = nameArr[currentNum].first;
-            webThird = nameArr[currentNum].third;
-            
-            FX.fadeOut(img, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalTitle').html(nameArr[currentNum].title);
-                    $('#imageModalImg').attr('src', `../images/${nameArr[currentNum].img}`);
-                    $('.siteModalDesc').html(webDesc);
-                    $('.siteModalTech').empty();
-                    $('.siteModalFirst').empty();
-                    $('.siteModalThird').empty();
-                    $(webTech).each((i) => $('.siteModalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
-                    $(webFirst).each((i) => $('.siteModalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
-                    $(webThird).each((i) => $('.siteModalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-                    
-                    FX.fadeIn(img, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-            FX.fadeOut(title, { duration: 500, complete: function() {FX.fadeIn(title, { duration: 500 })} });
-            for (let i = 0; i < desc.length; i++) FX.fadeOut(desc[i], { duration: 500, complete: function() {FX.fadeIn(desc[i], { duration: 500 })} });
-            for (let i = 0; i < tech.length; i++) FX.fadeOut(tech[i], { duration: 500, complete: function() {FX.fadeIn(tech[i], { duration: 500 })} });
-            for (let i = 0; i < first.length; i++) FX.fadeOut(first[i], { duration: 500, complete: function() {FX.fadeIn(first[i], { duration: 500 })} });
-            for (let i = 0; i < third.length; i++) FX.fadeOut(third[i], { duration: 500, complete: function() {FX.fadeIn(third[i], { duration: 500 })} });
-            
-            FX.fadeOut(imgFull, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalImgFull').attr('src', `../images/${nameArr[currentNum].img}`);
-                    
-                    FX.fadeIn(imgFull, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-        }
-
-        function nextSite() {
-            if (currentNum === nameArr.length-1) {
-                currentNum = 0;
-            } else {
-                currentNum++;
-            }
-            canPress = false;
-            webDesc = nameArr[currentNum].about;
-            webTech = nameArr[currentNum].tech;
-            webFirst = nameArr[currentNum].first;
-            webThird = nameArr[currentNum].third;
-
-            FX.fadeOut(img, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalTitle').html(nameArr[currentNum].title);
-                    $('#imageModalImg').attr('src', `../images/${nameArr[currentNum].img}`);
-                    $('.siteModalDesc').html(webDesc);
-                    $('.siteModalTech').empty();
-                    $('.siteModalFirst').empty();
-                    $('.siteModalThird').empty();
-                    $(webTech).each((i) => $('.siteModalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
-                    $(webFirst).each((i) => $('.siteModalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
-                    $(webThird).each((i) => $('.siteModalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-
-                    FX.fadeIn(img, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-            FX.fadeOut(title, { duration: 500, complete: function() {FX.fadeIn(title, { duration: 500 })} });
-            for (let i = 0; i < desc.length; i++) FX.fadeOut(desc[i], { duration: 500, complete: function() {FX.fadeIn(desc[i], { duration: 500 })} });
-            for (let i = 0; i < tech.length; i++) FX.fadeOut(tech[i], { duration: 500, complete: function() {FX.fadeIn(tech[i], { duration: 500 })} });
-            for (let i = 0; i < first.length; i++) FX.fadeOut(first[i], { duration: 500, complete: function() {FX.fadeIn(first[i], { duration: 500 })} });
-            for (let i = 0; i < third.length; i++) FX.fadeOut(third[i], { duration: 500, complete: function() {FX.fadeIn(third[i], { duration: 500 })} });
-
-            FX.fadeOut(imgFull, {
-                duration: 500,
-                complete: function() {
-                    $('#imageModalImgFull').attr('src', `../images/${nameArr[currentNum].img}`);
-
-                    FX.fadeIn(imgFull, {
-                        duration: 500,
-                        complete: function(){
-                            canPress = true;
-                        }
-                    })
-                }
-            });
-        }
+        const imgCont = document.getElementById('siteList');
     </script>
 
 </body>

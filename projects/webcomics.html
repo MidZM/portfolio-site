@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown d-none d-sm-block">
                       <a class="dropbtn nav-link dropdown-toggle" href="../projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
                         <a class="text-center dropdown-item text-white-cus border-bottom" href="websites.html">Websites <span class="sr-only">(current)</span></a>
@@ -32,6 +32,9 @@
                         <a class="text-center dropdown-item text-white-cus" href="animations.html">Animations</a>
                       </div>
                 </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a class="nav-link" href="../projects.html">Projects</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../about.html">About</a>
                 </li>
@@ -39,8 +42,129 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Grid -->
+    <div class="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
+        <button class="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#infoNames" aria-controls="infoNames" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <!-- Left Side Bar Background Hackaround -->
+        <div class="row h-sm-100 d-none d-sm-block m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 h-100 p-0 bg-dark-cus text-center border-sm-right-2"></div>
+        </div>
+
+        <!-- Left Side Bar -->
+        <div id="infoNames" class="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
+            <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
+                <div class="container">
+                    <div class="row">
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="HTML"><h4>HTML/Non-Specific</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="React"><h4>React</h4></a>
+                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2" data-name="Wix"><h4>Wix</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="row m-0 position-absolute w-100 scrollDiv galleryDiv">
+            <div class="d-none d-sm-block col-sm-3"></div>
+            <div class="col col-sm-9">
+                <div class="container p-3">
+                    <div class="row">
+                        <div class="col-12 text-light text-center mb-3">
+                            <h1>Websites</h1>
+                        </div>
+                    </div>
+                    <div class="column-1">
+                        <div id="siteList" class="column-2">
+                            <div class="cont" data-num="0" data-name="HTML">
+                                <img class="img-fluid img-thumbnail image" src="../images/website_af.png">
+                                <div class="middle">
+                                    <div class="text">Angel Fluff Diapers</div>
+                                </div>
+                            </div>
+                            <div class="cont" data-num="1" data-name="HTML">
+                                <img class="img-fluid img-thumbnail image" src="../images/website_pp.png">
+                                <div class="middle">
+                                    <div class="text">Mountain View Plastic Pants</div>
+                                </div>
+                            </div>
+                            <div class="cont" data-num="2" data-name="HTML">
+                                <img class="img-fluid img-thumbnail image" src="../images/website_ww.png">
+                                <div class="middle">
+                                    <div class="text">Workwear Headquarters</div>
+                                </div>
+                            </div>
+                            <div class="cont" data-num="3" data-name="HTML">
+                                <img class="img-fluid img-thumbnail image" src="../images/website_cn.png">
+                                <div class="middle">
+                                    <div class="text">CloudNovel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="imageModalAria" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-cus" role="document">
+            <div class="modal-content bg-dark-cus text-light">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="media align-items-center">
+                                <div id="img-holder" class="col-12 col-lg-6 text-center border-lg-right-2" style="display: block;">
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
+                                    <img id="modalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
+                                    <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
+                                </div>
+
+                                <div id="img-holder-full" class="image-holder row col-12 align-items-center justify-content-center text-center" style="display: none;">
+                                    <button type="button" class="btn btn-secondary mr-3 btn-full-left-cus" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
+                                    <span className="panel_gallery helper"></span>
+                                    <img id="modalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
+                                    <button type="button" class="btn btn-secondary ml-3 btn-full-right-cus" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
+                                </div>
+
+                                <div class="d-none d-lg-block col-12 col-lg-6 text-left">
+                                    <h3>About:</h3>
+                                    <p class="modalDesc"></p>
+                                    <h3>Technologies Used:</h3>
+                                    <p class="modalTech"></p>
+                                    <h3>Custom Plugins:</h3>
+                                    <p class="modalFirst"></p>
+                                    <h3>3rd Party Plugins:</h3>
+                                    <p class="modalThird"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row d-block d-lg-none pt-3 border-top">
+                            <div class="col-12 col-lg-6 align-self-center text-left">
+                                <h3>About:</h3>
+                                <p class="modalDesc"></p>
+                                <h3>Technologies Used:</h3>
+                                <p class="modalTech"></p>
+                                <h3>Custom Plugins:</h3>
+                                <p class="modalFirst"></p>
+                                <h3>3rd Party Plugins:</h3>
+                                <p class="modalThird"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
