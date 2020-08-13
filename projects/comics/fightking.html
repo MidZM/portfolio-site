@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Weston Meade Designs | Games</title>
+    <title>Weston Meade Designs | Comic - Fight King</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark-cus sticky-top">
-        <a class="navbar-brand" href="../index.html"><img src="../images/MascotAvatar-Flipped.png" width="65" height="65"></a>
+        <a class="navbar-brand" href="../../index.html"><img src="../../images/MascotAvatar-Flipped.png" width="65" height="65"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTop">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Home</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../gallery.html">Gallery</a>
+                    <a class="nav-link" href="../../gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item dropdown d-none d-sm-block active">
-                      <a class="dropbtn nav-link dropdown-toggle" href="../projects.html">Projects</a>
+                <li class="nav-item dropdown d-none d-sm-block">
+                      <a class="dropbtn nav-link dropdown-toggle" href="../../projects.html">Projects</a>
                       <div class="p-0 m-0 dropdown-menu bg-dark-cus border" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="text-center dropdown-item text-white-cus border-bottom" href="websites.html">Websites</a>
-                        <a class="text-center dropdown-item text-white-cus border-bottom" href="games.html">Games <span class="sr-only">(current)</span></a>
-                        <a class="text-center dropdown-item text-white-cus border-bottom" href="webcomics.html">Webcomics</a>
-                        <a class="text-center dropdown-item text-white-cus" href="animations.html">Animations</a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="../../projects/websites.html">Websites</a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="../../projects/games.html">Games</a>
+                        <a class="text-center dropdown-item text-white-cus border-bottom" href="../../projects/webcomics.html">Webcomics <span class="sr-only">(current)</span></a>
+                        <a class="text-center dropdown-item text-white-cus" href="../../projects/animations.html">Animations</a>
                       </div>
                 </li>
                 <li class="nav-item d-block d-sm-none">
-                    <a class="nav-link" href="../projects.html">Projects</a>
+                    <a class="nav-link" href="../../projects.html">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../about.html">About</a>
+                    <a class="nav-link" href="../../about.html">About</a>
                 </li>
               </ul>
         </div>
@@ -58,7 +58,6 @@
             <div class="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style="z-index: 6;">
                 <div class="container">
                     <div class="row">
-                            <a href="#" onclick="replaceItems(this)" class="col-sm-12 nav-link text-a-cus font-2 active" data-name="Symbiotic"><h4>Visual Novel</h4></a>
                     </div>
                 </div>
             </div>
@@ -71,16 +70,13 @@
                 <div class="container p-3">
                     <div class="row">
                         <div class="col-12 text-light text-center mb-3">
-                            <h1>Games</h1>
+                            <h1>Fight King</h1>
                         </div>
                     </div>
-                    <div class="column-1">
-                        <div id="siteList" class="column-2">
-                            <div class="cont" data-num="0" data-name="Symbiotic">
-                                <img class="img-fluid img-thumbnail image" src="../images/Cover_Full.jpg">
-                                <div class="middle">
-                                    <div class="text">Symbiotic</div>
-                                </div>
+                    <div id="modalList" class="text-center">
+                        <div class="container">
+                            <div class="row">
+                                
                             </div>
                         </div>
                     </div>
@@ -103,34 +99,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="media align-items-center">
-                                <div id="image-holder" class="col-12 col-lg-6 text-center border-lg-right-2" style="display: block;">
+                                <div id="img-holder" class="col-12 text-center" style="display: block;">
                                     <button type="button" class="btn btn-secondary" style="height: 100px" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
-                                    <img id="modalImg" class="img-fluid w-75 p-3 img-fluid-cus" src="" alt="">
+                                    <img id="modalImg" class="img-fluid w-90 p-3 img-fluid-cus" style="cursor: pointer;"src="" alt="">
                                     <button type="button" class="btn btn-secondary" style="height: 100px" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
                                 </div>
-
-                                <div id="image-holder-full" class="image-holder row col-12 align-items-center justify-content-center text-center" style="display: none;">
-                                    <button type="button" class="btn btn-secondary mr-3 btn-full-left-cus" onclick="prevImg()"><i class="fa fa-angle-left"></i></button>
-                                    <span className="panel_gallery helper"></span>
-                                    <img id="modalImgFull" class="panel_gallery img-fluid p-3 img-fluid-cus" src="" alt="">
-                                    <button type="button" class="btn btn-secondary ml-3 btn-full-right-cus" onclick="nextImg()"><i class="fa fa-angle-right"></i></button>
-                                </div>
-
-                                <div class="d-none d-lg-block col-12 col-lg-6 text-left">
-                                    <h3>About:</h3>
-                                    <p class="modalDesc"></p>
-                                    <h3>Engine Used:</h3>
-                                    <p class="modalEng"></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row d-block d-lg-none pt-3 border-top">
-                            <div class="col-12 col-lg-6 align-self-center text-left">
-                                <h3>About:</h3>
-                                <p class="modalDesc"></p>
-                                <h3>Engine Used:</h3>
-                                <p class="modalEng"></p>
                             </div>
                         </div>
                     </div>
@@ -142,31 +115,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-    <script src="../node_modules/animejs/lib/anime.min.js"></script>
-    <script src="../js/fading.js"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="../../node_modules/animejs/lib/anime.min.js"></script>
+    <script src="../../js/fading.js"></script>
 
     <script>
-        const modalArr = {
-            Symbiotic: [
-                {
-                    img: "Cover_Full.jpg",
-                    title: "Symbiotic",
-                    about: "Symbiotic is a Visual Novel game that was created as a way ",
-                    eng: "CloudNovel"
-                }
-            ]
-        };
-
-        let name = "";
-        let nameArr = "";
-        let currentNum = 0;
-        let canPress = false;
-        let webDesc;
-        let webEng;
-
-        const imgCont = document.getElementById('modalList');
+        
     </script>
 
+    <script src="../../js/comic-scripts.js"></script>
 </body>
 </html>

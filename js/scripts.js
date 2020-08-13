@@ -58,7 +58,7 @@ function clickImg() {
         if (nameArr[$(this).data('num')].tech) $(webTech).each((i) => $('.modalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
         if (nameArr[$(this).data('num')].first) $(webFirst).each((i) => $('.modalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
         if (nameArr[$(this).data('num')].third) $(webThird).each((i) => $('.modalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-        $('.modalEng').html(webEng);
+        if (nameArr[$(this).data('num')].eng) $('.modalEng').html(webEng);
     } else {
         $('#modalImg').attr('src', `${imgPath}/${name}/${nameArr[$(this).data('num')].img}`);
         $('#modalImgFull').attr('src', `${imgPath}/${name}/${nameArr[$(this).data('num')].img}`);
@@ -156,7 +156,7 @@ function prevImg() {
             duration: 500,
             complete: function() {
                 $('#modalTitle').html(nameArr[currentNum].title);
-                if (checkPaths !== "") {
+                if (checkPaths() !== "") {
                     $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
                     $('.modalDesc').html(webDesc);
                     if (nameArr[currentNum].tech) $('.modalTech').empty();
@@ -165,7 +165,7 @@ function prevImg() {
                     if (nameArr[currentNum].tech) $(webTech).each((i) => $('.modalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
                     if (nameArr[currentNum].first) $(webFirst).each((i) => $('.modalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
                     if (nameArr[currentNum].third) $(webThird).each((i) => $('.modalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-                    $('.modalEng').html(webEng);
+                    if (nameArr[currentNum].eng) $('.modalEng').html(webEng);
                 } else {
                     $('#modalImg').attr('src', `${imgPath}/${name}/${nameArr[currentNum].img}`);
                     $('.modalDesc').html(nameArr[currentNum].desc);
@@ -228,7 +228,7 @@ function nextImg() {
             duration: 500,
             complete: function() {
                 $('#modalTitle').html(nameArr[currentNum].title);
-                if (checkPaths !== "") {
+                if (checkPaths() !== "") {
                     $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
                     $('.modalDesc').html(webDesc);
                     if (nameArr[currentNum].tech) $('.modalTech').empty();
@@ -237,7 +237,7 @@ function nextImg() {
                     if (nameArr[currentNum].tech) $(webTech).each((i) => $('.modalTech').append(`<ul class="m-0"><li>${webTech[i]}</li></ul>`));
                     if (nameArr[currentNum].first) $(webFirst).each((i) => $('.modalFirst').append(`<ul class="m-0"><li>${webFirst[i]}</li></ul>`));
                     if (nameArr[currentNum].third) $(webThird).each((i) => $('.modalThird').append(`<ul class="m-0"><li>${webThird[i]}</li></ul>`));
-                    $('.modalEng').html(webEng);
+                    if (nameArr[currentNum].eng) $('.modalEng').html(webEng);
                 } else {
                     $('#modalImg').attr('src', `${imgPath}/${name}/${nameArr[currentNum].img}`);
                     $('.modalDesc').html(nameArr[currentNum].desc);

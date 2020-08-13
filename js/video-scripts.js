@@ -21,7 +21,6 @@ function checkPaths() {
 imgPath = `${checkPaths()}images`;
 
 let animDelay = 50;
-console.log(card)
 vid.setAttribute('src', `https://www.youtube-nocookie.com/embed/${modalArr[0].src}`);
 card.children[0].innerHTML = modalArr[0].title;
 card.children[1].innerHTML = modalArr[0].desc;
