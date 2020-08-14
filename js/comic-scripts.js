@@ -8,33 +8,110 @@ let modalArr = {};
 let chapAmnt = 0
 let comic = '';
 let canPress = false;
+let cover = false;
 
-function setImgArr(dir, chaps, nums, folder) {
+function setImgArr(dir, cov, chaps, nums, folder, override) {
     let e = 0;
-    if (dir === 'Marked' || dir === 'Childish-Love') e = 1;
     chapAmnt = chaps;
+    cover = false;
 
-    for (let x = 1; x < chaps+1; x++) {
-        modalArr[`chapter${x}`] = [];
+    if (!override) {
+        for (let x = 1; x < chaps+1; x++) {
+            modalArr[`chapter${x}`] = [];
+            if (cov) {
+                e = 1;
+                cover = true;
+            }
 
+            if (Array.isArray(nums)) {
+                const num = nums[x-1];
+                if (num === undefined) {
+                    console.error('You did not input the same amount of pages in: Arugment 3 as you did chapters in: Argument 2');
+                    return;
+                }
+                
+                for (let y = 0; y < num + e; y++) {
+                    if (folder) {
+                        modalArr[`chapter${x}`].push({
+                            img: `${dir}/comic/${folder}/chapter${x}/${folder}-Chapter-${x}-Page-${y}.jpg`,
+                            thumb: `${dir}/comic/${folder}/chapter${x}/thumb/${folder}-Chapter-${x}-Page-${y}-Thumb.jpg`,
+                            cover: cover
+                        });
+                    } else {
+                        modalArr[`chapter${x}`].push({
+                            img: `${dir}/comic/chapter${x}/${dir}-Chapter-${x}-Page-${y}.jpg`,
+                            thumb: `${dir}/comic/chapter${x}/thumb/${dir}-Chapter-${x}-Page-${y}-Thumb.jpg`,
+                            cover: cover
+                        });
+                    }
+                }
+            } else if (!isNaN(nums)) {
+                if (chaps > 1) {
+                    console.error('More than one chapter requires an array of numbers.');
+                    return;
+                }
+                for (let i = 1; i < nums + 1; i++) {
+                    if (folder) {
+                        modalArr[`chapter${x}`].push({
+                            img: `${dir}/comic/${folder}/chapter${x}/${folder}-Chapter-${x}-Page-${i}.jpg`,
+                            thumb: `${dir}/comic/${folder}/chapter${x}/thumb/${folder}-Chapter-${x}-Page-${i}-Thumb.jpg`,
+                            cover: cover
+                        });
+                    } else {
+                        modalArr[`chapter${x}`].push({
+                            img: `${dir}/comic/chapter${x}/${dir}-Chapter-${x}-Page-${i}.jpg`,
+                            thumb: `${dir}/comic/chapter${x}/thumb/${dir}-Chapter-${x}-Page-${i}-Thumb.jpg`,
+                            cover: cover
+                        });
+                    }
+                }
+            } else {
+                console.error('Please input a number, or an array of numbers matching the number of chapters from Argument 2, in: Argument 3');
+            }
+        }
+    } else {
+        modalArr[`chapter${chaps}`] = [];
+        
         if (Array.isArray(nums)) {
-            const num = nums[x-1];
+            const num = nums[chaps-1];
             if (num === undefined) {
                 console.error('You did not input the same amount of pages in: Arugment 3 as you did chapters in: Argument 2');
-                break;
+                return;
             }
             
             for (let y = 0; y < num + e; y++) {
-                if (folder) modalArr[`chapter${x}`].push(`${dir}/comic/${folder}/chapter${x}/${folder}-Chapter-${x}-Page-${y}.jpg`);
-                else modalArr[`chapter${x}`].push(`${dir}/comic/chapter${x}/${dir}-Chapter-${x}-Page-${y}.jpg`);
+                if (folder) {
+                    modalArr[`chapter${chaps}`].push({
+                        img: `${dir}/comic/${folder}/chapter${chaps}/${folder}-Chapter-${chaps}-Page-${y}.jpg`,
+                        thumb: `${dir}/comic/${folder}/chapter${chaps}/thumb/${folder}-Chapter-${chaps}-Page-${y}-Thumb.jpg`,
+                        cover: cover
+                    });
+                } else {
+                    modalArr[`chapter${chaps}`].push({
+                        img: `${dir}/comic/chapter${chaps}/${dir}-Chapter-${chaps}-Page-${y}.jpg`,
+                        thumb: `${dir}/comic/chapter${chaps}/thumb/${dir}-Chapter-${chaps}-Page-${y}-Thumb.jpg`,
+                        cover: cover
+                    });
+                }
             }
         } else if (!isNaN(nums)) {
             for (let i = 1; i < nums + 1; i++) {
-                if (folder) modalArr[`chapter${x}`].push(`${dir}/comic/${folder}/chapter${x}/${folder}-Chapter-${x}-Page-${i}.jpg`);
-                else modalArr[`chapter${x}`].push(`${dir}/comic/chapter${x}/${dir}-Chapter-${x}-Page-${i}.jpg`);
+                if (folder) {
+                    modalArr[`chapter${chaps}`].push({
+                        img: `${dir}/comic/${folder}/chapter${chaps}/${folder}-Chapter-${chaps}-Page-${i}.jpg`,
+                        thumb: `${dir}/comic/${folder}/chapter${chaps}/thumb/${folder}-Chapter-${chaps}-Page-${i}-Thumb.jpg`,
+                        cover: cover
+                    });
+                } else {
+                    modalArr[`chapter${chaps}`].push({
+                        img: `${dir}/comic/chapter${chaps}/${dir}-Chapter-${chaps}-Page-${i}.jpg`,
+                        thumb: `${dir}/comic/chapter${chaps}/thumb/${dir}-Chapter-${chaps}-Page-${i}-Thumb.jpg`,
+                        cover: cover
+                    });
+                }
             }
         } else {
-            console.error('Please input a number or an array of numbers matching the number of chapters from Argument 2 in: Argument 3');
+            console.error('Please input a number, or an array of numbers matching the number of chapters from Argument 2, in: Argument 3');
         }
     }
 }
@@ -42,23 +119,24 @@ function setImgArr(dir, chaps, nums, folder) {
 const e = path.substr(9);
 switch(e) {
     case '/comics/marked.html':
-        setImgArr('Marked', 9, [13, 25, 13, 18, 17, 26, 24, 12, 20]);
+        setImgArr('Marked', true, 10, [13, 25, 13, 18, 17, 26, 24, 12, 20, 19]);
+        setImgArr('Marked', false, 11, 14, false, true)
         comic = 'Marked';
         break;
     case '/comics/childishlove.html':
-        setImgArr('Naruto', 2, [18, 13], 'Childish-Love');
+        setImgArr('Naruto', true, 2, [18, 13], 'Childish-Love');
         comic = 'Childish Love';
         break;
     case '/comics/tdec.html':
-        setImgArr('Naruto', 1, 8, 'TDEC');
+        setImgArr('Naruto', false, 1, 8, 'TDEC');
         comic = 'The Day Everything Changed';
         break;
     case '/comics/tdecr.html':
-        setImgArr('Naruto', 1, 2, 'TDECR');
+        setImgArr('Naruto', false, 1, 2, 'TDECR');
         comic = 'The Day Everything Changed: Reboot';
         break;
     case '/comics/fightking.html':
-        setImgArr('FightKing', 1, 3);
+        setImgArr('FightKing', false, 1, 3);
         comic = 'Fight King';
         break;
     default:
@@ -85,14 +163,13 @@ function clickImg() {
     if (checkPaths() === '../../') {
         name = $(this).data('name');
         nameArr = modalArr[name];
-        if (path.includes('marked') || path.includes('childishlove')) currentNum = parseInt($(this).data('num'));
-        else currentNum = parseInt($(this).data('num')) - 1;
+        currentNum = parseInt($(this).data('num'));
         canPress = true;
 
-        if (path.includes('marked') || path.includes('childishlove')) $('#modalTitle').html(`${comic} - ${$(this).data('cover') ? 'Cover' : `Page ${currentNum}`}`);
+        if (nameArr[currentNum].cover) $('#modalTitle').html(`${comic} - ${$(this).data('cover') ? 'Cover' : `Page ${currentNum}`}`);
         else $('#modalTitle').html(`${comic} - ${$(this).data('cover') ? 'Cover' : `Page ${currentNum+1}`}`);
-        $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum]}`);
-        $('#modalImgFull').attr('src', `${imgPath}/${nameArr[currentNum]}`);
+        $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
+        $('#modalImgFull').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
 
         $('#infoModal').modal("show");
     }
@@ -104,18 +181,18 @@ function replaceItems(e) {
         let nodePage = '';
         for (let i = 0; i < modalArr[$(e).data('name')].length; i++) {
             const page = modalArr[$(e).data('name')];
-            if (path.includes('marked') || path.includes('childishlove')) {
+            if (page[i].cover) {
                 nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i}" data-name="chapter${$(e).data('name').substr(7)}">
-                    <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i]}">
+                    <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i].thumb}">
                     <div class="middle">
                         <div class="text">${i === 0 ? 'Cover' : 'Page ' + i}</div>
                     </div>
                 </div>`;
             } else {
                 nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i}" data-name="chapter${$(e).data('name').substr(7)}">
-                    <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i]}">
+                    <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i].thumb}">
                     <div class="middle">
-                        <div class="text">${i === 0 ? 'Cover' : 'Page ' + i}</div>
+                        <div class="text">Page ${i+1}</div>
                     </div>
                 </div>`;
             }
@@ -153,16 +230,16 @@ if (checkPaths() === '../../') {
     let nodePage = '';
     for (let i = 0; i < modalArr['chapter1'].length; i++) {
         const page = modalArr['chapter1'];
-        if (path.includes('marked') || path.includes('childishlove')) {
+        if (page[i].cover) {
             nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i}" data-name="chapter1" ${i === 0 ? 'data-cover="true"' : ''}>
-                <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i]}">
+                <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i].thumb}">
                 <div class="middle">
                     <div class="text">${i === 0 ? 'Cover' : 'Page ' + i}</div>
                 </div>
             </div>`;
         } else {
             nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i+1}" data-name="chapter1">
-                <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i]}">
+                <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i].thumb}">
                 <div class="middle">
                     <div class="text">Page ${i+1}</div>
                 </div>
@@ -226,9 +303,9 @@ function prevImg() {
         FX.fadeOut(img, {
             duration: 500,
             complete: function() {
-                if (path.includes('marked') || path.includes('childishlove')) $('#modalTitle').html(`${comic} - ${currentNum === 0 ? 'Cover' : `Page ${currentNum}`}`);
+                if (nameArr[currentNum].cover) $('#modalTitle').html(`${comic} - ${currentNum === 0 ? 'Cover' : `Page ${currentNum}`}`);
                 else $('#modalTitle').html(`${comic} - Page ${currentNum+1}`);
-                $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum]}`);
+                $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
 
                 FX.fadeIn(img, {
                     duration: 500,
@@ -255,9 +332,9 @@ function nextImg() {
         FX.fadeOut(img, {
             duration: 500,
             complete: function() {
-                if (path.includes('marked') || path.includes('childishlove')) $('#modalTitle').html(`${comic} - ${currentNum === 0 ? 'Cover' : `Page ${currentNum}`}`);
+                if (nameArr[currentNum].cover) $('#modalTitle').html(`${comic} - ${currentNum === 0 ? 'Cover' : `Page ${currentNum}`}`);
                 else $('#modalTitle').html(`${comic} - Page ${currentNum+1}`);
-                $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum]}`);
+                $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
 
                 FX.fadeIn(img, {
                     duration: 500,
