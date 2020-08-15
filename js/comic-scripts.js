@@ -120,7 +120,7 @@ const e = path.substr(9);
 switch(e) {
     case '/comics/marked.html':
         setImgArr('Marked', true, 10, [13, 25, 13, 18, 17, 26, 24, 12, 20, 19]);
-        setImgArr('Marked', false, 11, 14, false, true)
+        setImgArr('Marked', false, 11, 14, false, true);
         comic = 'Marked';
         break;
     case '/comics/childishlove.html':
@@ -166,8 +166,8 @@ function clickImg() {
         currentNum = parseInt($(this).data('num'));
         canPress = true;
 
-        if (nameArr[currentNum].cover) $('#modalTitle').html(`${comic} - ${$(this).data('cover') ? 'Cover' : `Page ${currentNum}`}`);
-        else $('#modalTitle').html(`${comic} - ${$(this).data('cover') ? 'Cover' : `Page ${currentNum+1}`}`);
+        if (nameArr[currentNum].cover) $('#modalTitle').html(`${comic} - ${nameArr[currentNum].cover ? 'Cover' : `Page ${currentNum}`}`);
+        else $('#modalTitle').html(`${comic} - ${nameArr[currentNum].cover ? 'Cover' : `Page ${currentNum+1}`}`);
         $('#modalImg').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
         $('#modalImgFull').attr('src', `${imgPath}/${nameArr[currentNum].img}`);
 
@@ -231,7 +231,7 @@ if (checkPaths() === '../../') {
     for (let i = 0; i < modalArr['chapter1'].length; i++) {
         const page = modalArr['chapter1'];
         if (page[i].cover) {
-            nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i}" data-name="chapter1" ${i === 0 ? 'data-cover="true"' : ''}>
+            nodePage += `<div class="cont col-6 col-md-4 col-lg-3 mb-4" data-num="${i}" data-name="chapter1"}>
                 <img class="img-fluid img-thumbnail image" src="${imgPath}/${page[i].thumb}">
                 <div class="middle">
                     <div class="text">${i === 0 ? 'Cover' : 'Page ' + i}</div>
