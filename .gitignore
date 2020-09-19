@@ -3,3 +3,27 @@ Bootstrap/Project Portfolio Roadmap.pdf
 Bootstrap/PortfolioProject.docx
 Bootstrap/PortfolioProject.pdf
 Bootstrap/support
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+react-site/node_modules
+react-site/.pnp
+react-site/.pnp.js
+
+# testing
+react-site/coverage
+
+# production
+react-site/build
+
+# misc
+react-site/.DS_Store
+react-site/.env.local
+react-site/.env.development.local
+react-site/.env.test.local
+react-site/.env.production.local
+
+react-site/npm-debug.log*
+react-site/yarn-debug.log*
+react-site/yarn-error.log*
