@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Anime from 'react-anime';
+import { Collapse, Dropdown, NavbarToggler } from 'reactstrap';
 
 function GalleryInfo(props) {
     let galName = props.name;
@@ -33,25 +34,23 @@ function GalleryModalInfo(props) {
 
 }
 
-class GallerySelector extends Component {
-    shouldComponentUpdate(nextProps) {
-        if (this.props.Active === nextProps.Active) return false
-        else return true
+class GallerySiderBar extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isSideBarOpen: false
+        }
+
     }
 
+    toggleSideBar = () => this.setState(prevState => { return { isSideBarOpen:!prevState.isSideBarOpen } });
+    
     render() {
         return (
-            <div className="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
-                <button className="navbar-toggler mt-2 mb-2 ml-2" type="button" data-toggle="collapse" data-target="#infoNames" aria-controls="infoNames" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="row h-sm-100 d-none d-sm-block m-0-cus collapse navbar-collapse position-absolute w-100">
-                    <div className="col-sm-3 h-100 p-0 bg-dark-cus text-center border-sm-right-2"></div>
-                </div>
-
-                <div id="infoNames" className="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
-                    <div className="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style={{zIndex: 6}}>
+            <Dropdown className="row h-sm-100 m-0 position-absolute w-100">
+                <NavbarToggler onClick={this.toggleSideBar} className="mt-2 mb-2 ml-2" style={{zIndex: 6}} />
+                <Collapse id="infoNames" className="navbar-collapse" isOpen={this.state.isSideBarOpen} style={{zIndex: 6}}>
+                    <div className="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2">
                         <div className="container">
                             <div className="row">
                                     <button id="Marked" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Marked ? "active" : ""}`} data-name="Marked"><h4>Marked</h4></button>
@@ -62,7 +61,29 @@ class GallerySelector extends Component {
                             </div>
                         </div>
                     </div>
+                </Collapse>
+            </Dropdown>
+        )
+    }
+}
+
+class GallerySelector extends Component {
+    shouldComponentUpdate(nextProps) {
+        if (this.props.Active === nextProps.Active) return false
+        else return true
+    }
+
+    render() {
+        return (
+            <div className="container m-0 p-0 h-sm-100 navbar-expand-sm navbar-dark">
+                <div className="row h-sm-100 d-none d-sm-block m-0-cus collapse navbar-collapse position-absolute w-100">
+                    <div className="col-sm-3 h-100 p-0 bg-dark-cus text-center border-sm-right-2"></div>
                 </div>
+
+                <GallerySiderBar
+                    HandleActive={(e) => this.props.HandleActive(e)}
+                    Active={this.props.Active}
+                />
 
                 <div className="row m-0 position-absolute w-100 scrollDiv galleryDiv">
                     <div className="d-none d-sm-block col-sm-3"></div>

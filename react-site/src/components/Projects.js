@@ -1,5 +1,5 @@
 import React from 'react';
-import { AllProjectsInfo } from './ProjectsInfo';
+import { AllProjectsInfo } from './HelperComponentsMain/ProjectsInfo';
 
 function Projects() {
     return (

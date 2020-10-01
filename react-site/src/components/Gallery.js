@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GallerySelector } from './GalleryInfo';
+import { GallerySelector } from './HelperComponentsMain/GalleryInfo';
 import { GALLERYDATA } from '../shared/GalleryData';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

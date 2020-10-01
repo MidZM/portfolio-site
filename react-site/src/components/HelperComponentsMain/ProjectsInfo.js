@@ -1,8 +1,7 @@
 import React, { Component, useState } from 'react';
 import Anime from 'react-anime';
-import { Link } from 'react-router-dom';
-import { PROJECTSDATA } from './ProjectsData';
-import { SIDEBARDATA } from './Projects/ProjectData'
+import { Link, useHistory } from 'react-router-dom';
+import { PROJECTSDATA, SIDEBARDATA } from '../../shared/ProjectData';
 
 function AllProjectsInfo() {
     let delay = 0;
@@ -35,9 +34,12 @@ function AllProjectsInfo() {
     );
 }
 
-function ProjectInfo({proj, projData, toggle, selType}) {
-    const galInfo = projData[proj].filter(elm => elm.type === selType).map((elm, index) => (
-        <div key={index} data-num={index} data-name={elm.type} onClick={toggle}>
+function ProjectInfo({proj, projData, toggle, selType, setSite, colCount}) {
+    const history = useHistory();
+    console.log(history)
+    
+    const galInfo = projData[proj][selType].filter(elm => elm.type === selType).map((elm, index) => (
+        <div key={index} data-num={index} data-name={elm.type} onClick={() => {elm.type === "webcomics" ? history.push(`/projects/webcomics/${elm.dataName}`) : toggle(); setSite(index);}}>
             <img className="img-fluid img-thumbnail image" src={`/${process.env.PUBLIC_URL}images/${elm.dir ? `${elm.dir}/` : ""}${elm.img}`} alt={elm.title} />
             <div className="middle">
                 <div className="text">{elm.title}</div>
@@ -46,7 +48,7 @@ function ProjectInfo({proj, projData, toggle, selType}) {
     ));
     
     return (
-        <div id="imageList" className="column-2">
+        <div id="imageList" className={`column-${colCount || 2}`}>
             <Anime  className="cont "
                     duration={750}
                     delay={(el, i) => i * 50}
@@ -59,15 +61,15 @@ function ProjectInfo({proj, projData, toggle, selType}) {
     );
 }
 
-function SideBarInfo({proj, HandleActive, ActiveData, Active, selType}) {
+function SideBarInfo({proj, HandleActive, Active, ActiveData}) {
     const projects = SIDEBARDATA[proj].map((elm, index) => (
         <button key={index} id={elm.id} onClick={(e) => {HandleActive(e); ActiveData(e);}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${Active[elm.id] ? "active" : ""}`} data-name={elm.id}><h4>{elm.name}</h4></button>
     ));
 
     return (
-        <div className="row">
+        <React.Fragment>
             {projects}
-        </div>
+        </React.Fragment>
     );
 }
 
@@ -80,10 +82,11 @@ class ProjectSelector extends Component {
     }
 
     activeData = (e) => {
-        console.log(e.target.parentNode)
         const arr = [[e.target.parentNode.dataset.name, true]];
-        const obj = Object.fromEntries(arr)
-        this.setState(obj);
+        const obj = Object.fromEntries(arr);
+        this.setState({
+            Active: obj
+        });
     }
 
     componentDidMount() {
@@ -98,9 +101,9 @@ class ProjectSelector extends Component {
         });
     }
 
-    shouldComponentUpdate(nextProps) {
-        if (this.props.Active === nextProps.Active) return false
-        else return true
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.Active === nextState.Active) return false;
+        else return true;
     }
 
     render() {
@@ -117,13 +120,15 @@ class ProjectSelector extends Component {
                 <div id="infoNames" className="row h-sm-100 m-0 collapse navbar-collapse position-absolute w-100">
                     <div className="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style={{zIndex: 6}}>
                         <div className="container">
-                            <SideBarInfo
-                                proj={this.props.proj}
-                                HandleActive={this.props.HandleActive}
-                                ActiveData={this.activeData}
-                                Active={this.state.Active}
-                                selType={this.props.selType}
-                            />
+                            <div className="row">
+                                <SideBarInfo
+                                    proj={this.props.proj}
+                                    HandleActive={this.props.HandleActive}
+                                    Active={this.state.Active}
+                                    ActiveData={this.activeData}
+                                    selType={this.props.selType}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,7 +139,7 @@ class ProjectSelector extends Component {
                         <div className="container p-3">
                             <div className="row">
                                 <div className="col-12 text-light text-center mb-3">
-                                    <h1>Websites</h1>
+                                    <h1>{this.props.projName}</h1>
                                 </div>
                             </div>
                             <div className="column-1">
@@ -142,8 +147,10 @@ class ProjectSelector extends Component {
                                     projData={this.props.projData}
                                     proj={this.props.proj}
                                     modal={this.props.modal}
-                                    toggle={this.props.Toggle}
+                                    toggle={this.props.toggle}
                                     selType={this.props.selType}
+                                    setSite={this.props.setSite}
+                                    colCount={this.props.colCount}
                                 />
                             </div>
                         </div>
