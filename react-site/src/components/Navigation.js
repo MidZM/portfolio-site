@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom';
 import { PROJECTDATA } from '../shared/ProjectData';
 import { Collapse, Dropdown, DropdownMenu, DropdownToggle, Nav, NavbarToggler, NavItem } from 'reactstrap';
+import Comics from './Projects/HelperComponentsProj/Comics';
 
 class Navigation extends Component {
     constructor() {
@@ -88,12 +89,20 @@ class Navigation extends Component {
                         modal={this.state.modal}
                         toggle={this.toggle}
                     />} />
-                    <Route path="/projects/webcomics" render={() => <Webcomics
+                    <Route exact path="/projects/webcomics" render={() => <Webcomics
                         proj={"webcomics"}
                         projData={this.state.projData}
                         modal={this.state.modal}
                         toggle={this.toggle}
                     />} />
+
+                        <Route path="/projects/webcomics/:dataName" render={() => <Comics
+                            proj={"webcomics"}
+                            projData={this.state.projData}
+                            modal={this.state.modal}
+                            toggle={this.toggle}
+                        />} />
+
                     <Route path="/projects/animations" render={() => <Animations
                         proj={"animations"}
                         projData={this.state.projData}

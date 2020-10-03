@@ -36,14 +36,15 @@ function Games({proj, projData, modal, toggle}) {
     }
 
     function handleActive(e) {
-        const elm = e.target.parentNode.dataset.name;
+        let elm = e.target.parentNode.dataset.name;
+        if (e.target.dataset.name) elm = e.target.dataset.name;
         switch(elm) {
             case "VN":
                 setSelType("VN");
                 break;
             default: 
                 setSelType("VN");
-                console.log('The item you clicked is not does not have a gallery attached to it.');
+                console.log('The item you clicked does not have a game type attached to it.');
         }
     }
 

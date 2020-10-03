@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Route } from 'react-router-dom';
 import { ProjectSelector } from '../HelperComponentsMain/ProjectsInfo';
-import Comics from './HelperComponentsProj/Comics';
 
 function Webcomics({proj, projData, modal, toggle}) {
     const [site, setSite] = useState(0);
     const [page, setPage] = useState(0);
     const [selType, setSelType] = useState("webcomics");
-    const [comic, setComic] = useState("Marked");
 
     useEffect(() => {
         function arrowKeys(e) {
@@ -39,14 +36,14 @@ function Webcomics({proj, projData, modal, toggle}) {
     }
 
     function handleActive(e) {
-        const elm = e.target.parentNode.dataset.name;
+        let elm = e.target.parentNode.dataset.name;
+        if (e.target.dataset.name) elm = e.target.dataset.name;
         switch(elm) {
             case "webcomics":
                 setSelType("webcomics");
                 break;
             default: 
                 setSelType("webcomics");
-                console.log('The item you clicked is not does not have a gallery attached to it.');
         }
     }
 
@@ -63,15 +60,6 @@ function Webcomics({proj, projData, modal, toggle}) {
                 setSite={setSite}
                 HandleActive={handleActive}
             />
-            
-            <Route path="/projects/webcomics/:dataName" render={() => <Comics
-                comic={comic}
-                page={page}
-                setPage={setPage}
-                toggle={toggle}
-                modal={modal}
-                projData={projData}
-            />} />
         </React.Fragment>
     );
 }

@@ -36,7 +36,8 @@ function Websites({proj, projData, modal, toggle}) {
     }
 
     function handleActive(e) {
-        const elm = e.target.parentNode.dataset.name;
+        let elm = e.target.parentNode.dataset.name;
+        if (e.target.dataset.name) elm = e.target.dataset.name;
         switch(elm) {
             case "HTML":
                 setSelType("HTML");

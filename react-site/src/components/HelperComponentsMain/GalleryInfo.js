@@ -30,10 +30,6 @@ function GalleryInfo(props) {
     );
 }
 
-function GalleryModalInfo(props) {
-
-}
-
 class GallerySiderBar extends Component {
     constructor() {
         super();
@@ -43,21 +39,21 @@ class GallerySiderBar extends Component {
 
     }
 
-    toggleSideBar = () => this.setState(prevState => { return { isSideBarOpen:!prevState.isSideBarOpen } });
+    toggleSideBar = (check) => {if (check) this.setState(prevState => { return { isSideBarOpen:!prevState.isSideBarOpen } })};
     
     render() {
         return (
             <Dropdown className="row h-sm-100 m-0 position-absolute w-100">
                 <NavbarToggler onClick={this.toggleSideBar} className="mt-2 mb-2 ml-2" style={{zIndex: 6}} />
-                <Collapse id="infoNames" className="navbar-collapse" isOpen={this.state.isSideBarOpen} style={{zIndex: 6}}>
-                    <div className="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2">
+                <Collapse id="infoNames" className="navbar-collapse" isOpen={this.state.isSideBarOpen}>
+                    <div className="col-sm-3 p-0 bg-dark-cus text-center border-sm-right-2" style={{zIndex: 6}}>
                         <div className="container">
                             <div className="row">
-                                    <button id="Marked" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Marked ? "active" : ""}`} data-name="Marked"><h4>Marked</h4></button>
-                                    <button id="Symbiotic" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Symbiotic ? "active" : ""}`} data-name="Symbiotic"><h4>Symbiotic</h4></button>
-                                    <button id="FightKing" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.FightKing ? "active" : ""}`} data-name="FightKing"><h4>Fight King (Concept)</h4></button>
-                                    <button id="Naruto" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Naruto ? "active" : ""}`} data-name="Naruto"><h4>Naruto</h4></button>
-                                    <button id="Mascot" onClick={(e) => this.props.HandleActive(e)} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Mascot ? "active" : ""}`} data-name="Mascot"><h4>Mascot</h4></button>
+                                    <button id="Marked" onClick={(e) => {this.props.HandleActive(e); window.innerWidth <= 575 ? this.toggleSideBar(true) : this.toggleSideBar();}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Marked ? "active" : ""}`} data-name="Marked"><h4>Marked</h4></button>
+                                    <button id="Symbiotic" onClick={(e) => {this.props.HandleActive(e); window.innerWidth <= 575 ? this.toggleSideBar(true) : this.toggleSideBar();}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Symbiotic ? "active" : ""}`} data-name="Symbiotic"><h4>Symbiotic</h4></button>
+                                    <button id="FightKing" onClick={(e) => {this.props.HandleActive(e); window.innerWidth <= 575 ? this.toggleSideBar(true) : this.toggleSideBar();}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.FightKing ? "active" : ""}`} data-name="FightKing"><h4>Fight King (Concept)</h4></button>
+                                    <button id="Naruto" onClick={(e) => {this.props.HandleActive(e); window.innerWidth <= 575 ? this.toggleSideBar(true) : this.toggleSideBar();}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Naruto ? "active" : ""}`} data-name="Naruto"><h4>Naruto</h4></button>
+                                    <button id="Mascot" onClick={(e) => {this.props.HandleActive(e); window.innerWidth <= 575 ? this.toggleSideBar(true) : this.toggleSideBar();}} className={`btn btn-noLine col-sm-12 nav-link text-a-cus font-2 rounded-0 ${this.props.Active.Mascot ? "active" : ""}`} data-name="Mascot"><h4>Mascot</h4></button>
                             </div>
                         </div>
                     </div>
@@ -110,4 +106,4 @@ class GallerySelector extends Component {
     }
 }
 
-export { GalleryInfo, GalleryModalInfo, GallerySelector };
+export { GalleryInfo, GallerySelector };
