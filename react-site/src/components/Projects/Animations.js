@@ -3,7 +3,7 @@ import { ProjectSelector } from '../HelperComponentsMain/ProjectsInfo';
 
 function Animations({proj, projData, modal, toggle}) {
     const [site, setSite] = useState(0);
-    const [selType, setSelType] = useState("animations");
+    const [selType] = useState("animations");
     const [video, setVideo] = useState('SymTrailer');
 
     useEffect(() => {

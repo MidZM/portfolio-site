@@ -4,35 +4,43 @@ import { Card, CardBody, CardHeader, CardText, Collapse, Dropdown, NavbarToggler
 import { Link, useHistory } from 'react-router-dom';
 import { PROJECTSDATA, SIDEBARDATA } from '../../shared/ProjectData';
 
-function AllProjectsInfo() {
-    let delay = 0;
-    const projects = PROJECTSDATA.map(proj => {
-        delay += 200
+class AllProjectsInfo extends Component {
+    shouldComponentUpdate() {
+        if (window.location.pathname === '/projects') return false;
+        else return true;
+    }
+
+    render() {
+        let delay = 0;
+        const projects = PROJECTSDATA.map(proj => {
+            delay += 200
+            return (
+                <div key={proj.id} className="col-12 col-md-6 text-center p-0">
+                    <Anime
+                            className={`img-hover-zoom w-100 cont`}
+                            duration={750}
+                            delay={delay}
+                            opacity={[0, 1]}
+                            scale={[1, 1.2, 1]}
+                            easing='easeInOutSine'
+                    >
+                        <Link to={`/projects/${proj.project}`}><img className="img-fluid image w-100" src={`/images/${proj.title}.jpg`} alt={proj.title} />
+                            <div className="middle">
+                                <div className="text"><h2>{proj.title}</h2></div>
+                            </div>
+                        </Link>
+                    </Anime>
+                </div>
+            );
+        });
+        
+
         return (
-            <div key={proj.id} className="col-12 col-md-6 text-center p-0">
-                <Anime
-                        className={`img-hover-zoom w-100 cont`}
-                        duration={750}
-                        delay={delay}
-                        opacity={[0, 1]}
-                        scale={[1, 1.2, 1]}
-                        easing='easeInOutSine'
-                >
-                    <Link to={`/projects/${proj.project}`}><img className="img-fluid image w-100" src={`/images/${proj.title}.jpg`} alt={proj.title} />
-                        <div className="middle">
-                            <div className="text"><h2>{proj.title}</h2></div>
-                        </div>
-                    </Link>
-                </Anime>
+            <div className="row m-auto p-0">
+                {projects}
             </div>
         );
-    });
-
-    return (
-        <div className="row m-auto p-0">
-            {projects}
-        </div>
-    );
+    }
 }
 
 function ProjectInfo({proj, projData, toggle, selType, setSite, setPage, colCount, comic, comicNum, chapter}) {
@@ -85,7 +93,7 @@ function VideoInfo({proj, projData, colCount, video}) {
                         opacity={[0, 1]}
                         easing='easeInOutSine'>
                     <div class="videoWrapper mb-3">
-                        <iframe id="modalVid" src={`https://www.youtube-nocookie.com/embed/${project.video}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="video" id="modalVid" src={`https://www.youtube-nocookie.com/embed/${project.video}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <Card className="bg-dark-cus border text-light">
                         <CardHeader className="font-size border-bottom h2">{project.title}</CardHeader>

@@ -8,10 +8,10 @@ function ComicModal({modal, toggle, proj, projData, site, HNS, page, comic, comi
     return (
     <Modal id="infoModal" centered className="modal-dialog-cus" isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle} className="bg-dark-cus modal-white-text pl-6">{projData[proj]['webcomics'][site].title}</ModalHeader>
-        <ModalBody className="bg-dark-cus p-0 m-auto">
+        <ModalBody className="bg-dark-cus p-0">
             <div className="container-fluid">
-                <div className="row">
-                    <div className="media align-items-center">
+                <div className="row m-auto">
+                    <div className="media align-items-center m-auto">
                         <div id="img-holder" className="col-12 text-center">
                             <button type="button" className="btn btn-secondary" style={{height: "100px"}} onClick={() => HNS(0)}><FontAwesomeIcon icon={faAngleLeft} /></button>
                             {console.log(`/${process.env.PUBLIC_URL}images/${dir ? `${dir}/` : ""}${dir ? `comic/${comic}` : comic}/${dir ? "" : 'comic/'}${chapter}/${projData[proj]['webcomics'][comicNum]['chapters'][chapter][page].img}`, projData[proj]['webcomics'][comicNum]['chapters'][chapter][page].img)}

@@ -23,6 +23,7 @@ class Navigation extends Component {
         super();
         this.state = {
             isNavOpen: false,
+            isDropOpen: false,
             isDropDown: false,
             projData: PROJECTDATA,
             modal: false

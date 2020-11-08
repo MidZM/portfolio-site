@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { fadeOut, fadeIn } from '../shared/FXFading'
 
 function Main() {
     const [bg, setBg] = useState();
+    const [animate, setAnimate] = useState(false);
+    const [fadeTimer] = useState(5);
+
+    const fadeMili = fadeTimer*1000;
+    
+
+    const imgExists = () => {
+        setAnimate(false);
+    }
 
     useEffect(() => {
+        const img = document.getElementById('bgImg');
+        
         let x = 0;
-        const bg = document.getElementById('bg')
+        
         const imgList = [
             "/images/Symbiotic/Cover.jpg",
             "/images/Marked/Im-Sorry.jpg",
@@ -19,41 +29,36 @@ function Main() {
 
         setBg(imgList[0]);
         const setInt = setInterval(function() {
-            
-            fadeOut(bg, {
-                duration: 1000,
-                complete: function() {
-                    if (x === imgList.length - 1) {
-                        x = 0;
-                    } else {
-                        x = x + 1;
-                    }
-                    // console.log('debug')
-                    setBg(imgList[x]);
-                    fadeIn(bg, {duration: 1000});
-                }
-            })
-            return false;
-        }, 5000);
+            setAnimate(true);
+
+            if (x === imgList.length - 1) {
+                x = 0;
+            } else {
+                x = x + 1;
+            }
+
+            return setTimeout(() => {
+                setBg(imgList[x]);
+            }, fadeTimer*100);
+        }, fadeMili);
+
+        img.addEventListener("load", imgExists)
 
         return () => {
             clearInterval(setInt);
+            img.removeEventListener("load", imgExists);
         }
-    }, []);
+    }, [fadeMili, fadeTimer]);
 
     const bgStyles = {
-        backgroundImage: `url('${bg}')`
-    }
+        backgroundImage: `url('${bg}')`,
+        transition: `opacity 0.${fadeTimer}s`
+    };
 
     return (
         <div id="home">
-            <div id="bg" className="bg" style={bgStyles}></div>
-            <img rel="preload" src="images/Marked/Im-Sorry.jpg" as="image" alt="" style={{display: 'none'}} />
-            <img rel="preload" src="images/Symbiotic/main-menu-background.jpg" as="image" alt="" style={{display: 'none'}} />
-            <img rel="preload" src="images/Marked/BannerK.jpg" as="image" alt="" style={{display: 'none'}} />
-            <img rel="preload" src="images/Marked/Group-Banner.jpg" as="image" alt="" style={{display: 'none'}} />
-            <img rel="preload" src="images/Marked/Thanks-For-Subscribing-img.jpg" as="image" alt="" style={{display: 'none'}} />
-            <img rel="preload" src="images/Marked/Wallpaper.jpg" as="image" alt="" style={{display: 'none'}} />
+            <div id="bg" className={`bg ${animate ? 'fadeOut' : 'fadeIn'}`} style={bgStyles}></div>
+            <img id="bgImg" rel="preload" src={bg} as="image" alt="" style={{display: 'none'}} />
         </div>
     )
 }

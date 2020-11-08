@@ -6,6 +6,21 @@ body, html, #root {
     padding: 0;
 }
 
+/*
+===========================
+== Animations
+===========================
+*/
+
+/* Fade */
+.fadeOut {
+    opacity: 0
+}
+
+.fadeIn {
+    opacity: 1
+}
+
 .bg-dark-cus {
     background-color: #222;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProjectSelector } from '../../HelperComponentsMain/ProjectsInfo';
 import ComicModal from './ComicModal';
@@ -13,6 +13,15 @@ function Comics({proj, projData, modal, toggle}) {
     const [comicName, setComicName] = useState("Marked");
 
     const match = useParams();
+
+    const handleNext = useCallback(num => {
+        console.log(page, num, projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1)
+        if (num === 0 && page === 0) return setPage(projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1);
+        else if (num === 1 && page === projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1) return setPage(0);
+
+        if (num === 0) setPage(page - 1);
+        else if (num === 1) setPage(page + 1);
+    }, [chapter, comicNum, page, proj, projData])
 
     useEffect(() => {
         function arrowKeys(e) {
@@ -33,20 +42,11 @@ function Comics({proj, projData, modal, toggle}) {
         setComic(match.dataName);
 
         return () => window.removeEventListener('keydown', arrowKeys);
-    });
+    }, [handleNext, match.dataName]);
 
     useEffect(() => {
         setComicName(projData[proj]['webcomics'][comicNum]['title'])
-    }, [comicNum]);
-
-    function handleNext(num) {
-        console.log(page, num, projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1)
-        if (num === 0 && page === 0) return setPage(projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1);
-        else if (num === 1 && page === projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1) return setPage(0);
-
-        if (num === 0) setPage(page - 1);
-        else if (num === 1) setPage(page + 1);
-    }
+    }, [comicNum, proj, projData]);
 
     function handleActive(e) {
         let elm = e.target.parentNode.dataset.name;

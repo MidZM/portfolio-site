@@ -224,13 +224,16 @@ const PROJECTDATA = {
                     <ul class="modalFirst">
                         <li>Webcomic Page &amp; Chapter Changer</li>
                         <li>Gallery Image Changer</li>
+                        <li>Image Fader</li>
                     </ul>
                     <h3>3rd Party Plugins:</h3>
                     <ul class="modalThird">
                         <li>React</li>
                         <li>React Router</li>
-                        <li>React Anchor Smooth Scroll</li>
-                        <li>Modified - Implamenting fadeIn() and fadeOut() without jQuery. (gabrieleromanato, the initial script has been heavily modified to work in ReactJS but keeps the initial core elements of fading)</li>
+                        <li>Bootstrap</li>
+                        <li>Reactstrap</li>
+                        <li>Font-Awesome</li>
+                        <li>React Animejs</li>
                         <li>Fullscreen Prefixer (SitePoint)</li>
                     </ul>
                 `

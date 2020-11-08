@@ -8,7 +8,7 @@ const GALLERYDATA = {
         { img: "NewKenta-Thumbnai-Al.jpg", desc: "A thumbnail used on the Tapas website to try and draw in readers to Marked.", title: "Kenta Thumbnail" },
         { img: "BannerK.jpg", desc: "The second banner to my webcomic Marked.", title: "Kenta Apocolypse Banner" },
         { img: "Im-Sorry.jpg", desc: "An ominous piece I made of the main protagonist of Marked.", title: "I'm Sorry..." },
-        { img: "Lilly-&-Sako-Easter.jpg", desc: "Happy Easter 2017.", title: "Sako &amp; Lilly - Happy Easter" },
+        { img: "Lilly-&-Sako-Easter.jpg", desc: "Happy Easter 2017.", title: "Sako & Lilly - Happy Easter" },
         { img: "Sako-Sweater.jpg", desc: "One of the protagonists from Marked asking an important question to an unknown individual.", title: "Do You... Think I'm Cute?" },
         { img: "Stary-Sky1.jpg", desc: "\"A hero looks onto the world he protects from evil.\"", title: "Starry Sky - Kenta" },
         { img: "Stary-Sky2.jpg", desc: "\"A villian looks onto a world burned by his destructive hands.\"", title: "Starry Sky - Ryden" },

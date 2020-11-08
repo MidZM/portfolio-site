@@ -70,7 +70,11 @@ const fadeOut = function(element, options) {
         },
         complete: options.complete,
         step: function(delta) {
-            element.style.opacity = to - delta;
+            if (Array.isArray(element)) {
+                for (let i = 0; i < element.length; i++) {
+                    element[i].style.opacity = to - delta;
+                }
+            } else element.style.opacity = to - delta;
         }
     });
 }
@@ -85,7 +89,11 @@ const fadeIn = function(element, options) {
         },
         complete: options.complete,
         step: function(delta) {
-            element.style.opacity = to + delta;
+            if (Array.isArray(element)) {
+                for (let i = 0; i < element.length; i++) {
+                    element[i].style.opacity = to + delta;
+                }
+            } else element.style.opacity = to + delta;
         }
     });
 }

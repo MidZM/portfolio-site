@@ -3,7 +3,6 @@ import { ProjectSelector } from '../HelperComponentsMain/ProjectsInfo';
 
 function Webcomics({proj, projData, modal, toggle}) {
     const [site, setSite] = useState(0);
-    const [page, setPage] = useState(0);
     const [selType, setSelType] = useState("webcomics");
 
     useEffect(() => {

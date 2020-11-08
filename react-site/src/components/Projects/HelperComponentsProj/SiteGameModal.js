@@ -13,7 +13,7 @@ function SiteGameModal({modal, toggle, proj, projData, site, selType, HNS}) {
                     <div className="media align-items-center">
                         <div id="img-holder" className="col-12 col-lg-8 text-center border-lg-right-2">
                             <button type="button" className="btn btn-secondary mr-3" style={{height: "100px"}} onClick={() => HNS(0)}><FontAwesomeIcon icon={faAngleLeft} /></button>
-                            <img id="modalImg" className="img-fluid w-75 img-fluid-cus" src={`/images/${projData[proj][selType][site].dir ? `${projData[proj][selType][site].dir}/` : ""}${projData[proj][selType][site].img}`} alt="" />
+                            <img id="modalImg" className="img-fluid w-75 img-fluid-cus mb-3 mb-lg-0" src={`/images/${projData[proj][selType][site].dir ? `${projData[proj][selType][site].dir}/` : ""}${projData[proj][selType][site].img}`} alt="" />
                             <button type="button" className="btn btn-secondary ml-3" style={{height: "100px"}} onClick={() => HNS(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                         </div>
 
