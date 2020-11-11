@@ -15,7 +15,6 @@ function Comics({proj, projData, modal, toggle}) {
     const match = useParams();
 
     const handleNext = useCallback(num => {
-        console.log(page, num, projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1)
         if (num === 0 && page === 0) return setPage(projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1);
         else if (num === 1 && page === projData[proj]['webcomics'][comicNum]['chapters'][chapter].length-1) return setPage(0);
 

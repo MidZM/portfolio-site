@@ -14,7 +14,6 @@ function ComicModal({modal, toggle, proj, projData, site, HNS, page, comic, comi
                     <div className="media align-items-center m-auto">
                         <div id="img-holder" className="col-12 text-center">
                             <button type="button" className="btn btn-secondary" style={{height: "100px"}} onClick={() => HNS(0)}><FontAwesomeIcon icon={faAngleLeft} /></button>
-                            {console.log(`/${process.env.PUBLIC_URL}images/${dir ? `${dir}/` : ""}${dir ? `comic/${comic}` : comic}/${dir ? "" : 'comic/'}${chapter}/${projData[proj]['webcomics'][comicNum]['chapters'][chapter][page].img}`, projData[proj]['webcomics'][comicNum]['chapters'][chapter][page].img)}
                             <img id="modalImg" className="img-fluid w-90 p-3 img-fluid-cus" src={`/${process.env.PUBLIC_URL}images/${dir ? `${dir}/` : ""}${dir ? `comic/${comic}` : comic}/${dir ? "" : 'comic/'}${chapter}/${projData[proj]['webcomics'][comicNum]['chapters'][chapter][page].img}`} alt="" />
                             <button type="button" className="btn btn-secondary" style={{height: "100px"}} onClick={() => HNS(1)}><FontAwesomeIcon icon={faAngleRight} /></button>
                         </div>

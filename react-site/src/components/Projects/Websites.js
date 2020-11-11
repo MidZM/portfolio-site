@@ -27,7 +27,6 @@ function Websites({proj, projData, modal, toggle}) {
     });
 
     function handleNext(num) {
-        console.log(site, num, projData[proj][selType].length-1)
         if (num === 0 && site === 0) return setSite(projData[proj][selType].length-1);
         else if (num === 1 && site === projData[proj][selType].length-1) return setSite(0);
 
